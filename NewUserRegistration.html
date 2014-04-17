@@ -16,7 +16,7 @@
     <div class="container_11">
         <div class="wrapper">
             <div class="imgBox">
-                <p class="imgText">Login</p>
+                <p class="imgText">New User Registration</p>
             </div>
         </div>
     </div>
@@ -37,9 +37,24 @@
                             <input id="password" type="password" required>
                         </div>
 
+                        <div class="pure-control-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input id="confirmPassword" type="password" required>
+                        </div>
+
+                        <div class="pure-control-group">
+                            <label for="userType">Type of User</label>
+                            <select id="userType">
+                                <option value="">Select</option>
+                                <option>Doctor</option>
+                                <option>Patient</option>
+                                <option>Admin</option>
+                            </select>
+                        </div>
+
                         <div class="pure-controls">
-                            <a class="pure-button pure-button-primary" href="NewUserRegistration.html">Create Account</a>
-                            <button type="submit" class="pure-button pure-button-primary">Login</button>
+                            <a class="pure-button pure-button-primary" href="index.html">Return To Login</a>
+                            <button type="submit" class="pure-button pure-button-primary">Register</button>
                         </div>
                     </fieldset>
                 </form>
