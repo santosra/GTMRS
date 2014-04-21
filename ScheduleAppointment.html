@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/grid.css" type="text/css" media="screen">
     <link rel="stylesheet" href="css/pure.css" type="text/css" media="screen">
     <link rel="stylesheet" href="css/redmond/jquery-ui.css" type="text/css" media="screen">
-    <link rel="stylesheet" href="css/star.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/rating.css" type="text/css" media="screen">
     <script src="js/jquery.js"></script>
     <script src="js/jquery-ui.js"></script>
 </head>
@@ -73,12 +73,13 @@
                                             <input type="radio" name="DoeJohn" value="Monday: 14:00 - 15:00">
                                         </th>
                                         <th>
-                                            <div id="rating" class="rating" style="display:inline;">
-                                                <span>☆</span>
-                                                <span>☆</span>
-                                                <span>☆</span>
-                                                <span>☆</span>
-                                                <span>☆</span>
+					    <div class="rating" id="stars" style="display: inline;">
+						<input type="radio" name="rating1" value="0" /><span id="hide"></span>
+						<input type="radio" name="rating1" value="1" disabled/><span></span>
+						<input type="radio" name="rating1" value="2" disabled/><span></span>
+						<input type="radio" name="rating1" value="3" disabled checked /><span></span>
+						<input type="radio" name="rating1" value="4" disabled/><span></span>
+						<input type="radio" name="rating1" value="5" disabled/><span></span>
                                             </div>
                                         </th>
                                     </tr>
@@ -91,7 +92,16 @@
                                             Wednesday: 14:00 - 15:00
                                             <input type="radio" name="DoeJohn" value="Wednesday: 14:00 - 15:00">
                                         </th>
-                                        <th>?</th>
+					<th>
+					    <div class="rating" id="stars" style="display: inline;">
+						<input type="radio" name="rating2" value="0" /><span id="hide"></span>
+						<input type="radio" name="rating2" value="1" disabled/><span></span>
+						<input type="radio" name="rating2" value="2" disabled/><span></span>
+						<input type="radio" name="rating2" value="3" disabled checked /><span></span>
+						<input type="radio" name="rating2" value="4" disabled/><span></span>
+						<input type="radio" name="rating2" value="5" disabled/><span></span>
+					    </div>
+					</th>
                                     </tr>
 
                                     <tr>
@@ -102,7 +112,16 @@
                                             Wednesday: 13:00 - 14:00
                                             <input type="radio" name="DoeJane" value="Wednesday: 13:00 - 14:00">
                                         </th>
-                                        <th>?</th>
+					<th>
+					    <div class="rating" id="stars" style="display: inline;">
+						<input type="radio" name="rating3" value="0" /><span id="hide"></span>
+						<input type="radio" name="rating3" value="1" disabled/><span></span>
+						<input type="radio" name="rating3" value="2" disabled/><span></span>
+						<input type="radio" name="rating3" value="3" disabled /><span></span>
+						<input type="radio" name="rating3" value="4" disabled checked/><span></span>
+						<input type="radio" name="rating3" value="5" disabled/><span></span>
+					    </div>
+					</th>
                                     </tr>
 
                                     <!-- Place results here -->
