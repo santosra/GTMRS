@@ -7,6 +7,7 @@ $(document).ready(function() {
         e.preventDefault();
 
         if ($("#allergy" + fieldsPatient).val() == "") {
+            $("#allergy" + fieldsPatient).focus();
             return;
         }
 
@@ -57,14 +58,17 @@ $(document).ready(function() {
         e.preventDefault();
 
         if ($("#availableDate" + fieldsDoctor).val() == "") {
+            $("#availableDate" + fieldsDoctor).focus();
             return;
         }
 
         if ($("#availableFrom" + fieldsDoctor).val() == "") {
+            $("#availableFrom" + fieldsDoctor).focus();
             return;
         }
 
         if ($("#availableTo" + fieldsDoctor).val() == "") {
+            $("#availableTo" + fieldsDoctor).focus();
             return;
         }
 

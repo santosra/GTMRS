@@ -6,26 +6,32 @@ $(document).ready(function() {
         e.preventDefault();
 
         if ($("#medName" + fields).val() == "") {
+            $("#medName" + fields).focus();
             return;
         }
 
         if ($("#dosage" + fields).val() == "") {
+            $("#dosage" + fields).focus();
             return;
         }
 
         if ($("#monthDuration" + fields).val() == "") {
+            $("#monthDuration" + fields).focus();
             return;
         }
 
         if ($("#dayDuration" + fields).val() == "") {
+            $("#dayDuration" + fields).focus();
             return;
         }
 
         if ($("#consultingDoctor" + fields).val() == "") {
+            $("#consultingDoctor" + fields).focus();
             return;
         }
 
         if ($("#date" + fields).val() == "") {
+            $("#date" + fields).focus();
             return;
         }
 
