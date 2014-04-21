@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/redmond/jquery-ui.css" type="text/css" media="screen">
     <script src="js/jquery.js"></script>
     <script src="js/jquery-ui.js"></script>
-    <script src="js/profile.js"></script>
+    <script src="js/medicine.js"></script>
 </head>
 
 <body>
@@ -28,31 +28,39 @@
 
                 <form class="pure-form pure-form-aligned">
                     <fieldset>
-                        <div class="pure-control-group" id ="medNameDiv1">
-                            <label for="medName1">Medicine Name</label>
-                            <input id="medName1" type="text">
+                        <div id="medicineDiv1">
+                            <div class="pure-control-group">
+                                <label for="medName1">Medicine Name</label>
+                                <input id="medName1" type="text" required>
+                            </div>
+
+                            <div class="pure-control-group">
+                                <label for="dosage1">Dosage</label>
+                                <input id="dosage1" type="number" min="1" max="10" required> per day
+                            </div>
+
+                            <div class="pure-control-group">
+                                <label for="monthDuration1">Duration</label>
+                                <input id="monthDuration1" type="number" min="0" max="30" required> months
+                                <input id="dayDuration1" type="number" min="1" max="30" required> days
+                            </div>
+
+                            <div class="pure-control-group">
+                                <label for="consultingDoctor1">Consulting Doctor</label>
+                                <input id="consultingDoctor1" type="text" required>
+                            </div>
+
+                            <div class="pure-control-group">
+                                <label for="date1">Date of Prescription</label>
+                                <input id="date1" type="date" required>
+                            </div>
+
+                            <div class="pure-control-group" id="buttonLocation1">
+                                <label></label>
+                                <button class="pure-button pure-button-active" id="removeButton" hidden>Remove</button>
+                                <button class="pure-button pure-button-active" id="addButton">Add</button>
+                            </div>
                         </div>
-
-                        <div class="pure-control-group" id ="dosageDiv1">
-                            <label for="dosage1">Dosage</label>
-                            <input id="dosage1" type="number" min="1" max="10" required> per day
-                        </div>
-
-                        <div class="pure-control-group" id ="durationDiv1">
-                            <label for="duration1">Duration</label>
-                            <input id="monthDuration1" type="number" min="0" max="30" required> months
-                            <input id="dayDuration1" type="number" min="1" max="30" required> days
-                        </div>                        
-
-                        <div class="pure-control-group" id ="consultingDoctorDiv1">
-                            <label for="consultingDoctor1">Consulting Doctor</label>
-                            <input id="consultingDoctor1" type="text" required>
-                        </div>
-
-                        <div class="pure-control-group" id ="dateDiv1">
-                            <label for="date1">Date of Prescription</label>
-                            <input id="date1" type="date" required>
-                        </div>                        
 
 
                         <div class="pure-controls">
