@@ -47,7 +47,7 @@ $(document).ready(function() {
                             </div>\
                             <div class="pure-control-group">\
                                 <label for="notes' + (fields + 1) + '">Notes</label>\
-                                <input id="notes' + (fields + 1) + '" type="text">\
+                                <textarea rows="4" cols="50" id="notes' + (fields + 1) + '" type="text"></textarea>\
                             </div>\
                             <div class="pure-control-group" id="buttonLocation' + (fields + 1) + '">\
                                 <label></label>\
