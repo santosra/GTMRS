@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>GTRMS</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/grid.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/pure.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/redmond/jquery-ui.css" type="text/css" media="screen">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/profile.js"></script>
+</head>
+
+<body>
+    <div class="container_11">
+        <div class="wrapper">
+            <div class="imgBox">
+                <p class="imgText">Order Medication From Pharmacy</p>
+            </div>
+        </div>
+    </div>
+
+    <section id="content">
+        <div class="main">
+            <div class="container_12">
+
+                <form class="pure-form pure-form-aligned">
+                    <fieldset>
+                        <div class="pure-control-group" id ="medNameDiv1">
+                            <label for="medName1">Medicine Name</label>
+                            <input id="medName1" type="text">
+                        </div>
+
+                        <div class="pure-control-group" id ="dosageDiv1">
+                            <label for="dosage1">Dosage</label>
+                            <input id="dosage1" type="number" min="1" max="10" required> per day
+                        </div>
+
+                        <div class="pure-control-group" id ="durationDiv1">
+                            <label for="duration1">Duration</label>
+                            <input id="monthDuration1" type="number" min="0" max="30" required> months
+                            <input id="dayDuration1" type="number" min="1" max="30" required> days
+                        </div>                        
+
+                        <div class="pure-control-group" id ="consultingDoctorDiv1">
+                            <label for="consultingDoctor1">Consulting Doctor</label>
+                            <input id="consultingDoctor1" type="text" required>
+                        </div>
+
+                        <div class="pure-control-group" id ="dateDiv1">
+                            <label for="date1">Date of Prescription</label>
+                            <input id="date1" type="date" required>
+                        </div>                        
+
+
+                        <div class="pure-controls">
+                            <button type="submit" class="pure-button pure-button-primary">Checkout</button>
+                        </div>
+                    </fieldset>
+                </form>
+
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
