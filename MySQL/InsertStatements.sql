@@ -9,3 +9,5 @@ INSERT INTO Admin
 INSERT INTO Doctor
 	VALUES ('WilkinsC', 902000, 'Carl', 'Wilkins', '1989-03-10', 
 	4071111111, '123 Alafaya Woods', 'Orthopedics', 101);
+INSERT INTO Patient_Allergies 
+	VALUES ('LozanoG', 'Benadryl');
