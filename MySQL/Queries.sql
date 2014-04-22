@@ -133,4 +133,9 @@ WHERE doctor = doctor.name;
 #Message from doctor to patient
 SELECT *
 FROM SendsMessageToPatient
-WHERE patient = patient.name;
+
+
+
+//Visit History
+SELECT Doctor.firstName, dateOfVisit, diastolicPressure, systolicPressure, medicineName, dosage, duration, notes, diagnosis FROM Visit, VisitDiagnosis, Prescription, Doctor 
+	WHERE Doctor.doctorUsername='WilkinsC'
