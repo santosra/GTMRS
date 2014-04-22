@@ -15,3 +15,7 @@ INSERT INTO Doctor
 	4071111111, '123 Alafaya Woods', 'Orthopedics', 101);
 INSERT INTO Doctor_Availability
 	VALUES ('WilkinsC', '08:00:00', '10:00:00', '2013-09-11');
+	
+INSERT INTO Visit
+	VALUES (1, 'WilkinsC', 'LozanoG', '2013-10-20', 120.0, 
+	80.0, 150.0);
