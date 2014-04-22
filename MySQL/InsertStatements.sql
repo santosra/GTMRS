@@ -11,3 +11,5 @@ INSERT INTO Doctor
 	4071111111, '123 Alafaya Woods', 'Orthopedics', 101);
 INSERT INTO Patient_Allergies 
 	VALUES ('LozanoG', 'Benadryl');
+INSERT INTO Doctor_Availability
+	VALUES ('WilkinsC', '08:00:00', '10:00:00', '2013-09-11');
