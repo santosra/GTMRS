@@ -19,3 +19,5 @@ INSERT INTO Doctor_Availability
 INSERT INTO Visit
 	VALUES (1, 'WilkinsC', 'LozanoG', '2013-10-20', 120.0, 
 	80.0, 150.0);
+INSERT INTO VisitDiagnosis
+	VALUES (1, 'Flu');
