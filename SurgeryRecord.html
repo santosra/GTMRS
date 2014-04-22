@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>GTRMS</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/grid.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/pure.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/redmond/jquery-ui.css" type="text/css" media="screen">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/visit.js"></script>
+</head>
+
+<body>
+    <div class="container_11">
+        <div class="wrapper">
+            <div class="imgBox">
+                <p class="imgText">Surgery Record</p>
+            </div>
+        </div>
+    </div>
+
+    <section id="content">
+        <div class="main">
+            <div class="container_12">
+
+                <form class="pure-form pure-form-aligned">
+                    <fieldset>
+                        <div class="pure-control-group">
+                            <label for="patient">Search Patient</label>
+                            <input id="patient" type="text" required>
+                            <label for="searchButton"></label>
+                            <button id="searchButton" type="submit" class="pure-button pure-button-primary">Search</button>
+                        </div>
+
+                        <div class="pure-control-group">
+                            <table class="pure-table pure-table-bordered" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Patient Name</th>
+                                        <th>Phone Number</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <!-- Example code -->
+
+                                    <tr>
+                                        <th>Tim Reed</th>
+                                        <th>123-456-7890</th>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Tim Reed</th>
+                                        <th>098-765-4321</th>
+                                    </tr>
+
+                                    <!-- Place results here -->
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <br>
+                        <hr>
+                        <br>
+
+                        <div class="pure-control-group">
+                            <label for="pName">Patient Name</label>
+                            <input id="pName" type="text" required>
+                        </div>
+
+                        <div class="pure-control-group">
+                            <label for="sName">Surgeon Name</label>
+                            <input id="sName" type="text" required>
+                        </div>
+
+                        <div class="pure-control-group">
+                            <label for="procedure">Procedure Name</label>
+                            <input id="procedure" type="text" required>
+                        </div>
+
+                        <div class="pure-control-group">
+                            <label for="cpt">CPT Code</label>
+                            <input id="cpt" type="text" required>
+                        </div>
+
+                        <div class="pure-control-group">
+                            <label for="assistants">Number Of Assistants</label>
+                            <input id="assistants" type="number" required>
+                        </div>
+
+
+                        <div class="pure-controls">
+                            <button type="submit" class="pure-button pure-button-primary">Record</button>
+                        </div>
+                    </fieldset>
+                </form>
+
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
