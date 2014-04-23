@@ -11,7 +11,7 @@
     <div class = "container_11">
       <div class="wrapper">
         <div class="imgBox">
-          <p class="imgText">Login</p>
+          <p class="imgText">Patient Visit History</p>
         </div>
       </div>
     </div>
@@ -19,9 +19,17 @@
   	<section id="content">
   		<div class="main">
     		<div class="container_12">
-
-    		<!--Place code for user interface here-->
-
+          <div class="grid_12">
+            <tr>
+              <a>Name:</a>
+              <td><INPUT type="text" name="name" size="30" onFocus="setEdited()"></td>
+              <span style="display:inline-block; width: 50;"></span>
+              <a>Phone:</a>
+              <td><INPUT type="text" name="phone" size="30" onFocus="setEdited()"></td>
+              <span style="display:inline-block; width: 20;"></span>
+              <INPUT type="button" value='Search' onClick="searchQuery()">
+            </tr>
+          </div>
     		</div>
   		</div>
 	</section>

@@ -1,5 +1,3 @@
-DELETE FROM Username
-INSERT INTO Username VALUES('Gloria');
 INSERT INTO User VALUES ('LozanoG', 'password');
 INSERT INTO Payment_Information 
 	VALUES ('5555555555555555', 'Gloria Lozano', 999, '2017-12-12', 'VISA');
