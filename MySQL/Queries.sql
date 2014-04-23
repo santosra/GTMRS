@@ -141,10 +141,6 @@ FROM SendsMessageToPatient
 
 
 
-
-//Visit History
-SELECT Doctor.firstName, dateOfVisit, diastolicPressure, systolicPressure, medicineName, dosage, duration, notes, diagnosis FROM Visit, VisitDiagnosis, Prescription, Doctor 
-	WHERE Doctor.doctorUsername='WilkinsC'
 	
 	
 	
