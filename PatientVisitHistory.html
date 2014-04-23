@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>GTRMS</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/grid.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/pure.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/redmond/jquery-ui.css" type="text/css" media="screen">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/visit.js"></script>
+</head>
+
+<body>
+    <div class="container_11">
+        <div class="wrapper">
+            <div class="imgBox">
+                <p class="imgText">Patient Visit History</p>
+            </div>
+        </div>
+    </div>
+
+    <section id="content">
+        <div class="main">
+            <div class="container_12">
+
+                <form class="pure-form pure-form-aligned">
+                    <fieldset>
+                        <div class="pure-control-group">
+                            <label for="name">Name</label>
+                            <input id="name" type="text">
+                            <label for="phone">Phone</label>
+                            <input id="phone" type="tel" pattern="^\d{3}-\d{3}-\d{4}$">
+                            <label for="searchButton"></label>
+                            <button id="searchButton" type="submit" class="pure-button pure-button-primary">Search</button>
+                        </div>
+
+                        <div class="pure-control-group">
+                            <table class="pure-table pure-table-bordered" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Patient Name</th>
+                                        <th>Phone Number</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <!-- Example code -->
+
+                                    <tr>
+                                        <th>Tim Reed</th>
+                                        <th>123-456-7890</th>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Tim Reed</th>
+                                        <th>098-765-4321</th>
+                                    </tr>
+
+                                    <!-- Place results here -->
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="pure-controls">
+                            <button type="submit" class="pure-button pure-button-primary">View</button>
+                            <a class="pure-button pure-button-primary" href="RecordAVisit.html">Record A Visit</a>
+                        </div>
+                        <br>
+                        <hr>
+                        <hr>
+                        <br>
+                        <div class="pure-control-group">
+                            <label for="date">Date of Visit</label>
+                            <select id="date" required>
+                                <option value="">Select</option>
+                                <option>Insert Visit Date 1</option>
+                                <option>Insert Visit Date 2</option>
+                            </select>
+                            <label for="searchButton"></label>
+                            <button id="searchButton" type="submit" class="pure-button pure-button-primary">Search</button>
+                        </div>
+
+
+                        <br>
+                        <hr>
+                        <br>
+
+                        <div class="pure-control-group">
+                            <label for="doctor">Consulting Doctor</label>
+                            <input id="doctor" type="text" required>
+                        </div>
+                        <div class="pure-control-group">
+                            <label for="feetHeightPatient">Blood Pressure</label>
+                            Systolic: <input id="systolic" type="number" min="0" max="500" required>  
+                            Diastolic: <input id="diastolic" type="number" min="0" max="500" required>
+                        </div>
+                        <div class="pure-control-group">
+                            <label for="diagnosis">Diagnosis</label>
+                            <input id="diagnosis" type="text">
+                        </div>
+
+                        <div class="pure-control-group">
+                            <label for="medicine">Medications Perscribed</label>
+                            <table class="pure-table pure-table-bordered" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Medicine Name</th>
+                                        <th>Dosage</th>
+                                        <th>Duration</th>
+                                        <th>Notes</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <!-- Example code -->
+
+                                    <tr>
+                                        <th>Medicine1</th>
+                                        <th>2 per day</th>
+                                        <th>10 days</th>
+                                        <th>Take with food</th>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Medicine2</th>
+                                        <th>4 per day</th>
+                                        <th>5 days</th>
+                                        <th>take two tablets twice daily</th>
+                                    </tr>
+
+                                    <!-- Place results here -->
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </fieldset>
+                </form>
+
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
