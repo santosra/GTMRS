@@ -1,26 +1,23 @@
 /*Logging on to GTMRS 
 If Null value returned, show login screen again
 If not Null direct to appropriate page*/
-SELECT Username, Password FROM User
-WHERE Username= $Username AND Password=$Password
-DELETE FROM Username;
-INSERT INTO Username VALUES('Gloria');
+
+SELECT EXISTS
+(SELECT Username, Password FROM User
+WHERE Username= $Username AND Password=$Password)
+
+SELECT* FROM Patient
+WHERE patientUsername= $patientUsername
+
+SELECT* FROM Doctor
+WHERE doctorUsername= $doctorUsername
+
 
 /*New user registration
 New patient registration
 Upon clicking create account
 Check username is not in database*/
-UPDATE Patient
-FROM User
-WHERE Username= $Username AND Password=ConfirmPassword AND TypeOfUser= Patient
-#New doctor registration
-UPDATE Doctor
-FROM User
-WHERE Username= $Username AND Password= ConfirmPassword AND TypeOfUser= Doctor
-#New admin registration
-UPDATE Admin
-FROM User
-WHERE Username= $Username AND Password=ConfirmPassword AND TypeOfUser=Admin
+
 
 
 
@@ -134,6 +131,20 @@ WHERE doctor = doctor.name;
 #Message from doctor to patient
 SELECT *
 FROM SendsMessageToPatient
+
+
+//Updating
+UPDATE Patient
+FROM User
+WHERE Username= $Username AND Password=ConfirmPassword AND TypeOfUser= Patient
+#New doctor registration
+UPDATE Doctor
+FROM User
+WHERE Username= $Username AND Password= ConfirmPassword AND TypeOfUser= Doctor
+#New admin registration
+UPDATE Admin
+FROM User
+WHERE Username= $Username AND Password=ConfirmPassword AND TypeOfUser=Admin
 
 
 
