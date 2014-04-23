@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>GTRMS</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/grid.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/pure.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/redmond/jquery-ui.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/rating.css" type="text/css" media="screen">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.js"></script>
+</head>
+
+<body>
+    <div class="container_11">
+        <div class="wrapper">
+            <div class="imgBox">
+                <p class="imgText">Schedule Appointment</p>
+            </div>
+        </div>
+    </div>
+
+    <section id="content">
+        <div class="main">
+            <div class="container_12">
+
+                <form class="pure-form pure-form-aligned">
+                    <fieldset>
+                        <div class="pure-control-group">
+                            <label for="specialtyDoctor">Specialty</label>
+                            <select id="specialtyDoctor" required>
+                                <option value="">Select</option>
+                                <option>General Physician</option>
+                                <option>Heart Specialist</option>
+                                <option>Eye physician</option>
+                                <option>Orthopedics</option>
+                                <option>Psychiatry</option>
+                                <option>Gynecologist</option>
+                            </select>
+
+                            <label for="searchButton"></label>
+                            <button id="searchButton" type="submit" class="pure-button pure-button-primary">Search</button>
+                        </div>
+
+                        <br>
+                        <hr>
+                        <br>
+
+                        <div class="pure-control-group">
+                            <table class="pure-table pure-table-bordered" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Doctor Name</th>
+                                        <th>Phone Number</th>
+                                        <th>Room Number</th>
+                                        <th>Availability</th>
+                                        <th>Average Rating</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <!-- Example code -->
+
+                                    <tr>
+                                        <th>John Doe</th>
+                                        <th>555-555-5555</th>
+                                        <th>1234</th>
+                                        <th>
+                                            Monday: 14:00 - 15:00
+                                            <input type="radio" name="DoeJohn" value="Monday: 14:00 - 15:00">
+                                        </th>
+                                        <th>
+					    <div class="rating" id="stars" style="display: inline;">
+						<input type="radio" name="rating1" value="0" /><span id="hide"></span>
+						<input type="radio" name="rating1" value="1" disabled/><span></span>
+						<input type="radio" name="rating1" value="2" disabled/><span></span>
+						<input type="radio" name="rating1" value="3" disabled checked /><span></span>
+						<input type="radio" name="rating1" value="4" disabled/><span></span>
+						<input type="radio" name="rating1" value="5" disabled/><span></span>
+                                            </div>
+                                        </th>
+                                    </tr>
+
+                                    <tr>
+                                        <th>John Doe</th>
+                                        <th>555-555-5555</th>
+                                        <th>1234</th>
+                                        <th>
+                                            Wednesday: 14:00 - 15:00
+                                            <input type="radio" name="DoeJohn" value="Wednesday: 14:00 - 15:00">
+                                        </th>
+					<th>
+					    <div class="rating" id="stars" style="display: inline;">
+						<input type="radio" name="rating2" value="0" /><span id="hide"></span>
+						<input type="radio" name="rating2" value="1" disabled/><span></span>
+						<input type="radio" name="rating2" value="2" disabled/><span></span>
+						<input type="radio" name="rating2" value="3" disabled checked /><span></span>
+						<input type="radio" name="rating2" value="4" disabled/><span></span>
+						<input type="radio" name="rating2" value="5" disabled/><span></span>
+					    </div>
+					</th>
+                                    </tr>
+
+                                    <tr>
+                                        <th>Jane Doe</th>
+                                        <th>555-555-5555</th>
+                                        <th>4321</th>
+                                        <th>
+                                            Wednesday: 13:00 - 14:00
+                                            <input type="radio" name="DoeJane" value="Wednesday: 13:00 - 14:00">
+                                        </th>
+					<th>
+					    <div class="rating" id="stars" style="display: inline;">
+						<input type="radio" name="rating3" value="0" /><span id="hide"></span>
+						<input type="radio" name="rating3" value="1" disabled/><span></span>
+						<input type="radio" name="rating3" value="2" disabled/><span></span>
+						<input type="radio" name="rating3" value="3" disabled /><span></span>
+						<input type="radio" name="rating3" value="4" disabled checked/><span></span>
+						<input type="radio" name="rating3" value="5" disabled/><span></span>
+					    </div>
+					</th>
+                                    </tr>
+
+                                    <!-- Place results here -->
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="pure-controls">
+                            <button type="submit" class="pure-button pure-button-primary">Request Appointment</button>
+                        </div>
+                    </fieldset>
+                </form>
+
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

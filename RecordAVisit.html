@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>GTRMS</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/grid.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/pure.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="css/redmond/jquery-ui.css" type="text/css" media="screen">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/visit.js"></script>
+</head>
+
+<body>
+    <div class="container_11">
+        <div class="wrapper">
+            <div class="imgBox">
+                <p class="imgText">Record A Visit</p>
+            </div>
+        </div>
+    </div>
+
+    <section id="content">
+        <div class="main">
+            <div class="container_12">
+
+                <form class="pure-form pure-form-aligned">
+                    <fieldset>
+                        <div class="pure-control-group">
+                            <label for="date">Date of Visit</label>
+                            <input id="date" type="date" required>
+                        </div>
+                        <div class="pure-control-group">
+                            <label for="name">Patient Name</label>
+                            <input id="name" type="text" required>
+                        </div>
+                        <div class="pure-control-group">
+                            <label for="feetHeightPatient">Blood Pressure</label>
+                            Systolic: <input id="systolic" type="number" min="0" max="500" required>  
+                            Diastolic: <input id="diastolic" type="number" min="0" max="500" required>
+                        </div>
+                        <div class="pure-control-group">
+                            <label for="diagnosis">Diagnosis</label>
+                            <input id="diagnosis" type="text">
+                        </div>
+
+                        <br>
+                        <hr>
+                        <br>
+
+                        <div style="text-align:center;">
+                            <b>Prescribe Medication</b>
+                        </div>
+
+                        <br>
+
+                        <div id="medicineDiv1">
+                            <div class="pure-control-group">
+                                <label for="medName1">Medicine Name</label>
+                                <input id="medName1" type="text">
+                            </div>
+
+                            <div class="pure-control-group">
+                                <label for="dosage1">Dosage</label>
+                                <input id="dosage1" type="number" min="1" max="10"> per day
+                            </div>
+
+                            <div class="pure-control-group">
+                                <label for="monthDuration1">Duration</label>
+                                <input id="monthDuration1" type="number" min="0" max="30"> months
+                                <input id="dayDuration1" type="number" min="0" max="30"> days
+                            </div>
+
+                            <div class="pure-control-group">
+                                <label for="notes1">Notes</label>
+                                <textarea rows="4" cols="50" id="notes1" type="text"></textarea>
+                            </div>
+
+                            <div class="pure-control-group" id="buttonLocation1">
+                                <label></label>
+                                <button class="pure-button pure-button-active" id="removeButton" hidden>Remove</button>
+                                <button class="pure-button pure-button-active" id="addButton">Add More</button>
+                            </div>
+                        </div>
+
+
+                        <div class="pure-controls">
+                            <button type="submit" class="pure-button pure-button-primary">Submit</button>
+                        </div>
+                    </fieldset>
+                </form>
+
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
