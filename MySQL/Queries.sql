@@ -18,8 +18,14 @@ New patient registration
 Upon clicking create account
 Check username is not in database*/
 
+UPDATE Patient FROM User
+WHERE Username= $Username AND Password=ConfirmPassword AND TypeOfUser= Patient
 
+UPDATE Doctor FROM User
+WHERE Username= $Username AND Password= ConfirmPassword AND TypeOfUser= Doctor
 
+UPDATE Admin FROM User
+WHERE Username= $Username AND Password=ConfirmPassword AND TypeOfUser=Admin
 
 
 #Creating new user
@@ -133,18 +139,6 @@ SELECT *
 FROM SendsMessageToPatient
 
 
-//Updating
-UPDATE Patient
-FROM User
-WHERE Username= $Username AND Password=ConfirmPassword AND TypeOfUser= Patient
-#New doctor registration
-UPDATE Doctor
-FROM User
-WHERE Username= $Username AND Password= ConfirmPassword AND TypeOfUser= Doctor
-#New admin registration
-UPDATE Admin
-FROM User
-WHERE Username= $Username AND Password=ConfirmPassword AND TypeOfUser=Admin
 
 
 
