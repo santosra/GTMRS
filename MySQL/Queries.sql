@@ -145,3 +145,49 @@ FROM SendsMessageToPatient
 //Visit History
 SELECT Doctor.firstName, dateOfVisit, diastolicPressure, systolicPressure, medicineName, dosage, duration, notes, diagnosis FROM Visit, VisitDiagnosis, Prescription, Doctor 
 	WHERE Doctor.doctorUsername='WilkinsC'
+	
+	
+	
+//Everything below here hasn't been tested I just made rough copy without using database names
+
+#scheduling appointment
+
+FROM APPOINTMENTS
+SELECT * 
+WHICH NOT TAKEN
+
+// when someone selects an appointment and accepted by doctor mark it now as taken
+
+#order medication 
+INSERT INTO Orders (medicincename, dosage, duration, doctor,date)
+VALUES($medicinename,$dosage,$duration,$doctor,$date)
+
+
+
+#payment
+INSERT INTO Payment Info (cardname, cardno,type,CVV,expireDate)
+VALUES($cardname, $cardno, $type, $CVV, $expireDate)
+
+
+#updating rating
+
+UPDATE Rating FROM Doctor
+WHERE doctor.name=rating.doctor AND rating = $rating
+
+#record visit
+
+INSERT INTO Visits (date,patientname,systolic,diastolic,diagnosis,drug,dosage,duration,notes)
+VALUES($date,$patientname, $systolic, $diastolic, $diagnosis, $drug, $dosage, $duration, $notes)
+
+
+#send message
+
+INSERT INTO Inbox (of reciever) (from, message,timestamp)
+VALUES ($from, $message, $timestamp)
+
+
+
+#view message
+
+FROM Inbox
+SELECT *
