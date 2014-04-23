@@ -197,3 +197,9 @@ CREATE TABLE SendsMessageToPatient (
 	FOREIGN KEY (doctorUsername) REFERENCES Doctor(doctorUsername) ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY (patientUsername) REFERENCES Patient(patientUsername) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB;
+
+CREATE TABLE Username (
+	loginUsername VARCHAR(60),
+
+	PRIMARY KEY (loginUsername)
+) ENGINE=InnoDB;

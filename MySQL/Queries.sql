@@ -1,9 +1,10 @@
 /*Logging on to GTMRS 
 If Null value returned, show login screen again
 If not Null direct to appropriate page*/
-SELECT EXISTS
-(SELECT Username, Password FROM User
-WHERE Username= $Username AND Password=$Password)
+SELECT Username, Password FROM User
+WHERE Username= $Username AND Password=$Password
+DELETE FROM Username;
+INSERT INTO Username VALUES('Gloria');
 
 /*New user registration
 New patient registration
@@ -113,7 +114,7 @@ SELECT *
 FROM Availability 
 WHERE Availability.username = Doctor.username AND Availability.date=$date;
 
-#Patient history
+#Patient visit history
 SELECT *
 FROM Visits, Prescription
 WHERE Visits.patient=Patient.name AND Prescription.patient=Patient.name;
