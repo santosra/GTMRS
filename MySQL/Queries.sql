@@ -37,8 +37,13 @@ VALUES ($username, $password);
 New Patient 
 upon filling out fields and clicking submit*/
 INSERT INTO Patient
-(name, homePhone, income, dob, gender, address, workPhone, emergencyName, emergencyPhone, weight, height, patientUsername)
-VALUES ($name, $homePhone, $income, $dob, $gender, $address, $workPhone, $contactName, $contactPhone, $weight, $height, );
+	VALUES ($patientUsername, $name, $dob, $gender, $address, $workPhone, $homePhone, 
+	$emergencyName, $emergencyPhone, $weight, $height, $annualIncome, $cardNumber);
+
+
+INSERT INTO Patient_Allergies 
+	VALUES ($patientUsername, $allergies);
+
 
 #New Doctor
 INSERT INTO Doctor
