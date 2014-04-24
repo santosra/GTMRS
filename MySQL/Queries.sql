@@ -139,8 +139,9 @@ VALUES($medicinename,$dosage,$duration,$doctor,$date)
 
 
 #payment
-INSERT INTO Payment Info (cardname, cardno,type,CVV,expireDate)
-VALUES($cardname, $cardno, $type, $CVV, $expireDate)
+INSERT INTO Payment_Information( cardholderName, cardNumber, cardType, cvv, dateOfExpiry ) 
+VALUES (
+cardholderName, cardNumber, cardType, cvv, dateOfExpiry
 
 
 #updating rating
@@ -150,8 +151,8 @@ WHERE doctor.name=rating.doctor AND rating = $rating
 
 #record visit
 
-INSERT INTO Visits (date,patientname,systolic,diastolic,diagnosis,drug,dosage,duration,notes)
-VALUES($date,$patientname, $systolic, $diastolic, $diagnosis, $drug, $dosage, $duration, $notes)
+INSERT INTO Visit (dateOfVisit,patientUsername,doctorUsername, systolicPressure,diastolicPressure,billingAmount)
+VALUES($dateOfVisit,$patientUsername,$doctorUsername, $systolicPressure,$diastolicPressure,$billingAmount)
 
 
 #send message
