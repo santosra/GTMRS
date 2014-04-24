@@ -14,9 +14,7 @@ WHERE doctorUsername= $doctorUsername
 
 
 /*New user registration
-New patient registration
-Upon clicking create account
-Check username is not in database*/
+
 
 UPDATE Patient FROM User
 WHERE Username= $Username AND Password=ConfirmPassword AND TypeOfUser= Patient
@@ -29,9 +27,8 @@ WHERE Username= $Username AND Password=ConfirmPassword AND TypeOfUser=Admin
 
 
 #Creating new user
-INSERT INTO (depending on what drop down is selected)
-(username, password)
-VALUES ($username, $password);
+INSERT INTO User
+	VALUES ($username, $password);
 
 /*Create Profile
 New Patient 
@@ -83,8 +80,6 @@ FROM Availability
 UPDATE Availibility
 SET attribute=$attribute
 WHERE doctorUsername=$doctorUsername
-
-
 
 
 
