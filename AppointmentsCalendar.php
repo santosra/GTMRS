@@ -31,7 +31,6 @@ function submit($db) {
 
 	// Add script header
 	$code = "<script type=\"text/javascript\">";
-	//$code = "";
 
 	// Add counter
 	$count = $result->num_rows;
@@ -42,13 +41,13 @@ function submit($db) {
 		while ($row = mysqli_fetch_assoc($result)) {
 			// Get patient name
 			$sql = 'SELECT * From Patient Where patientUsername = "'.$row['patientUsername'].'"';
-			$username = mysqli_fetch_assoc($db->query($sql))['name'];
+			$name = mysqli_fetch_assoc($db->query($sql))['name'];
 
 			// Create line
-			$entry = "<tr> <th>".$count."</th> <th>".$username."</th> <th>".$row['time']."</th> </tr>";
+			$entry = "<tr> <th>".$count."</th> <th>".$name."</th> <th>".$row['time']."</th> </tr>";
 
 			// Add line to output
-			$code = $code.'$("#tableHeader").after("'.$entry.'");';
+			$code = $code.'$("#tableBody").prepend("'.$entry.'");';
 
 			// Increment counter
 			$count = $count - 1;
