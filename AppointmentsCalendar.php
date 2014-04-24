@@ -47,7 +47,7 @@ function submit($db) {
 			$entry = "<tr> <th>".$count."</th> <th>".$name."</th> <th>".$row['time']."</th> </tr>";
 
 			// Add line to output
-			$code = $code.'$("#tableBody").prepend("'.$entry.'");';
+			$code = $code.'$("#appointmentsTable > tbody").prepend("'.$entry.'");';
 
 			// Increment counter
 			$count = $count - 1;
