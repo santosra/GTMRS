@@ -1,10 +1,10 @@
 <?php
 
 // Database configuration
-$db_host = "localhost"; // Host name
-$db_port = "8889"; // Port number
-$db_username = "root"; // Mysql username
-$db_password = "root"; // Mysql password
+$db_host = "gtmrs-fenichelar.rhcloud.com"; // Host name
+$db_port = "3306"; // Port number
+$db_username = "adminIbvwfLd"; // Mysql username
+$db_password = "uruasduzqFn_"; // Mysql password
 $db_name = "GTMRS"; // Database name
 
 // Connect to server and select databse.
