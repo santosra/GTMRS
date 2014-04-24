@@ -93,6 +93,19 @@ SELECT COUNT*
 	WHERE MONTH($date) = $month AND YEAR($date)= $year
 	GROUP BY date
 
+
+/* order Medication
+
+INSERT INTO `Prescription`(`visitID`, `medicineName`, `dosage`, `duration`, `notes`, `ordered`) 
+VALUES (`$visitID`, `$medicineName`, `$dosage`, `$duration`, `$notes`, `$ordered`)
+
+
+/* Payment info
+INSERT INTO  `Payment_Information` (  `cardNumber` ,  `cardholderName` ,  `cvv` ,  `dateOfExpiry` ,  `cardType` ) 
+VALUES (`cardholderName`,`$cardNumber`, `$cvv`, `$dateOfExpiry`, `$cardType`)
+
+
+
 /*View visit history
 SELECT Doctor.firstName, dateOfVisit, diastolicPressure, systolicPressure, medicineName, dosage, duration, notes,diagnosis
 	FROM Visits, Prescription, VisitDiagnosis, Doctor
@@ -105,6 +118,21 @@ SELECT Patiet.name, dateOfVisit, diastolicPressure, systolicPressure, medicineNa
 	FROM Visits, Prescription, VisitDiagnosis, Patient
 	WHERE Visits.doctorUsername=Patient.patientUsername AND Visit.visitID= VisitDiagnosis.visitID AND Visit.visitID= Prescription.visitID
 	AND Visit.doctorUsername= $doctorUsername;
+
+
+/* Rating
+
+UPDATE `Doctor_Rating` 
+SET `doctorUsername`='$doctorUsername`,`patientUsername`=`$patientUsername`,`rating`=`$rating` 
+
+INSERT INTO `Doctor_Rating`(`doctorUsername`, `patientUsername`, `rating`)
+VALUES (`$doctorUsername`, `$patientUsername`, `$rating`)
+
+
+/* record visit
+
+INSERT INTO `Visit`(`visitID`, `doctorUsername`, `patientUserName`, `dateOfVisit`, `diastolicPressure`, `systolicPressure`, `billingAmount`)
+VALUES ('$visitID`, `$doctorUsername`, `$patientUserName`, `$dateOfVisit`, `$diastolicPressure`, `$systolicPressure`, `$billingAmount`)
 
 
 #Surgery Record
@@ -137,6 +165,9 @@ SELECT *
 
 	
 	
+
+
+
 	
 //Everything below here hasn't been tested I just made rough copy without using database names
 
@@ -146,33 +177,7 @@ SELECT `$doctorUsername`, `$patientUsername`, `$date`, `$time`
 FROM `Appointments` 
 WHERE 
 
-// when someone selects an appointment and accepted by doctor mark it now as taken
 
-#order medication 
-INSERT INTO `Prescription`(`visitID`, `medicineName`, `dosage`, `duration`, `notes`, `ordered`) 
-VALUES (`$visitID`, `$medicineName`, `$dosage`, `$duration`, `$notes`, `$ordered`)
-
-
-
-
-#payment
-INSERT INTO  `Payment_Information` (  `cardNumber` ,  `cardholderName` ,  `cvv` ,  `dateOfExpiry` ,  `cardType` ) 
-VALUES (`cardholderName`,`$cardNumber`, `$cvv`, `$dateOfExpiry`, `$cardType`)
-
-
-
-#updating rating
-
-UPDATE `Doctor_Rating` 
-SET `doctorUsername`='$doctorUsername`,`patientUsername`=`$patientUsername`,`rating`=`$rating` 
-
-INSERT INTO `Doctor_Rating`(`doctorUsername`, `patientUsername`, `rating`)
-VALUES (`$doctorUsername`, `$patientUsername`, `$rating`)
-
-#record visit
-
-INSERT INTO `Visit`(`visitID`, `doctorUsername`, `patientUserName`, `dateOfVisit`, `diastolicPressure`, `systolicPressure`, `billingAmount`)
-VALUES ('$visitID`, `$doctorUsername`, `$patientUserName`, `$dateOfVisit`, `$diastolicPressure`, `$systolicPressure`, `$billingAmount`)
 
 
 #send message
