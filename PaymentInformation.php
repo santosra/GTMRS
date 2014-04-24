@@ -1,21 +1,25 @@
 <?php
+
+// Start session
 session_start();
 
+// Check if user is logged in
 if(!isset($_SESSION['username'])){
 	header("location:Login.html");
 }
 
+// Include database config and html files
 require 'database.php';
 require basename(__FILE__, '.php').".html";
 
 
-// Check if submit button has been clicked
+// Check if submit button has been clicked (enter the name attribute of the first field in the form)
 if (isset($_POST['name'])) {
 	// Output the returned html
 	echo(submit($db));
 }
 
-// Function to run of submit button has been clicked
+// Function to run if submit button has been clicked
 function submit($db) {
 
 	// Get form fields
@@ -29,7 +33,7 @@ function submit($db) {
 	$sql = "INSERT INTO Payment_Information (cardholderName, cardNumber,cardType,cvv,dateOfExpiry) VALUES('$name', '$number', '$type', '$ccv', '$expiration')";
 	$result = $db->query($sql);
 
-	// Return to order page
+	// Return to home page
 	$refresh =  "<META HTTP-EQUIV=REFRESH CONTENT='0; URL=index.php'>";
 
 	// Alert user of success
@@ -38,11 +42,12 @@ function submit($db) {
 	// Create code to return
 	$code = $refresh.$alert;
 
+	// Return
 	return $code;
 
 }
 
-
+// Close database connection
 $db->close();
 
 ?>
