@@ -60,26 +60,25 @@ repopulate with previous information*/
 *attribute=> any value that corresponds to that user
 
 SELECT * FROM Patient;
-UPDATE Patient
-SET attribute=$attribute;
-WHERE patientUsername=$patientUsername;
+	UPDATE Patient
+	SET attribute=$attribute;
+	WHERE patientUsername=$patientUsername;
 
 /*Update Doctor
 repopulate with previous information*/
 
 SELECT* FROM Doctor;
-UPDATE Doctor
-SET attribute=$attribute 
-WHERE doctorUsername=$doctorUsername;
+	UPDATE Doctor
+	SET attribute=$attribute 
+	WHERE doctorUsername=$doctorUsername;
 
 
 
 #Updating availability
-SELECT *
-FROM Availability
-UPDATE Availibility
-SET attribute=$attribute
-WHERE doctorUsername=$doctorUsername
+SELECT * FROM Availability
+	UPDATE Availibility
+	SET attribute=$attribute
+	WHERE doctorUsername=$doctorUsername
 
 
 
@@ -99,22 +98,39 @@ SELECT Doctor.firstName, dateOfVisit, diastolicPressure, systolicPressure, medic
 	FROM Visits, Prescription, VisitDiagnosis, Doctor
 	WHERE Visits.doctorUsername=Doctor.doctorUsername AND Visit.visitID= VisitDiagnosis.visitID AND Visit.visitID= Prescription.visitID
 	AND Visit.patientUsername= $patientUsername;
+	
+
+/*View patient history	
+SELECT Patiet.name, dateOfVisit, diastolicPressure, systolicPressure, medicineName, dosage, duration, notes,diagnosis
+	FROM Visits, Prescription, VisitDiagnosis, Patient
+	WHERE Visits.doctorUsername=Patient.patientUsername AND Visit.visitID= VisitDiagnosis.visitID AND Visit.visitID= Prescription.visitID
+	AND Visit.doctorUsername= $doctorUsername;
 
 
 #Surgery Record
-SELECT *
-FROM Surgery
-Where Surgery.patient = Patient.name;
+
+INSERT INTO Surgery
+	VALUES ($cptCode, $surgeryType, $surgeryCost)
 
 
-#Message from patient to doctor
-SELECT *
-FROM SendMessageToDoctor
-WHERE doctor = doctor.name;
+SELECT Patient FROM User
+	WHERE Patient.name= $name
+	
+SELECT Patient.name, 
 
-#Message from doctor to patient
+
+
+
+/* View Message from patient to doctor
+
 SELECT *
-FROM SendsMessageToPatient
+	FROM SendMessageToDoctor
+	WHERE doctorUsername = $doctorUsername;
+
+/* View Message from doctor to patient
+SELECT *
+	FROM SendsMessageToPatient
+	WHERE patientUsername= $patientUsername
 
 
 
@@ -139,9 +155,8 @@ VALUES($medicinename,$dosage,$duration,$doctor,$date)
 
 
 #payment
-INSERT INTO Payment_Information( cardholderName, cardNumber, cardType, cvv, dateOfExpiry ) 
-VALUES (
-cardholderName, cardNumber, cardType, cvv, dateOfExpiry
+INSERT INTO Payment Info
+	VALUES ($cardholderName,$cardNumber, $CVV, $dateOfExpiry, $cardType,)
 
 
 #updating rating
@@ -151,8 +166,8 @@ WHERE doctor.name=rating.doctor AND rating = $rating
 
 #record visit
 
-INSERT INTO Visit (dateOfVisit,patientUsername,doctorUsername, systolicPressure,diastolicPressure,billingAmount)
-VALUES($dateOfVisit,$patientUsername,$doctorUsername, $systolicPressure,$diastolicPressure,$billingAmount)
+INSERT INTO Visits (date,patientname,systolic,diastolic,diagnosis,drug,dosage,duration,notes)
+VALUES($date,$patientname, $systolic, $diastolic, $diagnosis, $drug, $dosage, $duration, $notes)
 
 
 #send message
