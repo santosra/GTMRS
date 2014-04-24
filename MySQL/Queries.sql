@@ -173,21 +173,16 @@ SELECT *
 
 #scheduling appointment
 
-SELECT `$doctorUsername`, `$patientUsername`, `$date`, `$time` 
+SELECT `$doctorUsername`
 FROM `Appointments` 
-WHERE 
-
-
+WHERE  `date`=$date , `time`=$time
 
 
 #send message
 
-INSERT INTO Inbox (of reciever) (from, message,timestamp)
-VALUES ($from, $message, $timestamp)
+INSERT INTO `SendsMessageToDoctor`(`patientUsername`, `doctorUsername`, `dateTime`, `content`, `status`) 
+VALUES (`$patientUsername`, `$doctorUsername`, `$dateTime`, `$content`, `$status`)
 
+INSERT INTO `SendsMessageToPatient`(`doctorUsername`, `patientUsername`, `dateTime`, `content`, `status`) 
+VALUES (`$doctorUsername`, `$patientUsername`, `$dateTime`, `$content`, `$status`)
 
-
-#view message
-
-FROM Inbox
-SELECT *
