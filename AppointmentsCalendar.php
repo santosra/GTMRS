@@ -49,9 +49,8 @@ function submit($db) {
 			// Add line to output
 			$code = $code.'$("#appointmentsTable > tbody").prepend("'.$entry.'");';
 
-			// Increment counter
+			// Decrement counter
 			$count = $count - 1;
-
 		}
 
 	}
