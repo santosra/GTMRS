@@ -9,7 +9,15 @@ require 'database.php';
 require basename(__FILE__, '.php').".html";
 
 
-// Put code here!
+$patient="SELECT * FROM Patient WHERE patientUsername='".$_SESSION['username']."'";
+$doctor="SELECT * FROM Doctor WHERE doctorUsername='".$_SESSION['username']."'";
+
+if($db->query($patient)->num_rows==1) {
+	echo("<script type='text/javascript'>$('#patientProfile').show();</script>");
+}
+if($db->query($doctor)->num_rows==1) {
+	echo("<script type='text/javascript'>$('#doctorProfile').show();</script>");
+}
 
 
 $db->close();
