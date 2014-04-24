@@ -25,21 +25,21 @@
         <div class="main">
             <div class="container_12">
 
-                <form class="pure-form pure-form-aligned">
+                <form class="pure-form pure-form-aligned" method="post" action="?submit">
                     <fieldset>
                         <div class="pure-control-group">
                             <label for="name">Card Holders Name</label>
-                            <input id="name" type="text" required>
+                            <input name="name" id="name" type="text" required>
                         </div>
 
                         <div class="pure-control-group">
                             <label for="number">Card Number</label>
-                            <input id="number" type="number" required>
+                            <input name="number" id="number" type="number" required>
                         </div>
 
                         <div class="pure-control-group">
                             <label for="type">Card Type</label>
-                            <select id="type" required>
+                            <select name="type" id="type" required>
                                 <option value="">Select</option>
                                 <option>Visa</option>
                                 <option>MaterCard</option>
@@ -49,12 +49,12 @@
 
                         <div class="pure-control-group">
                             <label for="ccv">CCV</label>
-                            <input id="ccv" type="number" required>
+                            <input name="ccv" id="ccv" type="number" required>
                         </div>
 
                         <div class="pure-control-group">
-                            <label for="experation">Experation</label>
-                            <input id="experation" type="date" required>
+                            <label for="expiration">Expiration</label>
+                            <input name="expiration" id="expiration" type="date" required>
                         </div>
 
                         <div class="pure-controls">
