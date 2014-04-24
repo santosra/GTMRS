@@ -1,4 +1,5 @@
 INSERT INTO Username VALUES('Gloria');
+INSERT INTO User VALUES ('test', 'password');
 INSERT INTO User VALUES ('LozanoG', 'password');
 INSERT INTO User VALUES ('PetersonB', 'password');
 INSERT INTO User VALUES ('WilkinsC', 'password');
