@@ -6,8 +6,15 @@ session_start();
 require 'database.php';
 
 // Define $username and $password 
-$username = $_POST['username']; 
-$password = $_POST['password']; 
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+echo($username);
+echo("\n");
+echo($password);
+
+echo("\n");
+echo("\n");
 
 // To protect MySQL injection
 $username = stripslashes($username);
@@ -15,8 +22,15 @@ $password = stripslashes($password);
 $username = mysql_real_escape_string($username);
 $password = mysql_real_escape_string($password);
 
+echo($username);
+echo("\n");
+echo($password);
+
+echo("\n");
+echo("\n");
+
 // Query database
-$sql = "SELECT * FROM User WHERE username = ".$username." and password = ".$password;
+$sql = "SELECT * FROM User WHERE username='$username' and password='$password'";
 $result = $db->query($sql);
 
 echo($sql);
