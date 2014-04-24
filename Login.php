@@ -9,33 +9,9 @@ require 'database.php';
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-echo($username);
-echo("\n");
-echo($password);
-
-echo("\n");
-echo("\n");
-
-// To protect MySQL injection
-$username = stripslashes($username);
-$password = stripslashes($password);
-$username = mysql_real_escape_string($username);
-$password = mysql_real_escape_string($password);
-
-echo($username);
-echo("\n");
-echo($password);
-
-echo("\n");
-echo("\n");
-
 // Query database
 $sql = "SELECT * FROM User WHERE username='$username' and password='$password'";
 $result = $db->query($sql);
-
-echo($sql);
-echo("\n");
-echo($result);
 
 // Mysql_num_row is counting table row
 $count = $result->num_rows;
