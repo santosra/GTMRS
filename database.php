@@ -1,7 +1,7 @@
 <?php
 
 // Database configuration
-$db_host = "gtmrs-fenichelar.rhcloud.com"; // Host name
+$db_host = "127.11.142.2"; // Host name
 $db_port = "3306"; // Port number
 $db_username = "adminIbvwfLd"; // Mysql username
 $db_password = "uruasduzqFn_"; // Mysql password
