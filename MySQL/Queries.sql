@@ -142,32 +142,37 @@ SELECT *
 
 #scheduling appointment
 
-FROM Appointments
-SELECT * 
-WHERE Doctor.doctorUsername = Appointments.doctorUsername AND Appointments.date=$date AND Appointments.time = $time AND Patient.patientUsername = Appointments.patientUsername
+SELECT `$doctorUsername`, `$patientUsername`, `$date`, `$time` 
+FROM `Appointments` 
+WHERE 
 
 // when someone selects an appointment and accepted by doctor mark it now as taken
 
 #order medication 
-INSERT INTO Prescription (medicinceName, dosage, duration,date,$visitID)
-VALUES($medicineName,$dosage,$duration,$date,$visitID)
+INSERT INTO `Prescription`(`visitID`, `medicineName`, `dosage`, `duration`, `notes`, `ordered`) 
+VALUES (`$visitID`, `$medicineName`, `$dosage`, `$duration`, `$notes`, `$ordered`)
+
 
 
 
 #payment
-INSERT INTO Payment_Information(cardholderName,cardNumber, cvv, dateOfExpiry, cardType)
-	VALUES ($cardholderName,$cardNumber, $cvv, $dateOfExpiry, $cardType)
+INSERT INTO  `Payment_Information` (  `cardNumber` ,  `cardholderName` ,  `cvv` ,  `dateOfExpiry` ,  `cardType` ) 
+VALUES (`cardholderName`,`$cardNumber`, `$cvv`, `$dateOfExpiry`, `$cardType`)
+
 
 
 #updating rating
 
-UPDATE Doctor_Rating
-WHERE Doctor.doctorUsername=Doctor_Rating.doctorUsername AND rating = $rating AND Patient.patientUsername=Doctor_Rating.patienUsername
+UPDATE `Doctor_Rating` 
+SET `doctorUsername`='$doctorUsername`,`patientUsername`=`$patientUsername`,`rating`=`$rating` 
+
+INSERT INTO `Doctor_Rating`(`doctorUsername`, `patientUsername`, `rating`)
+VALUES (`$doctorUsername`, `$patientUsername`, `$rating`)
 
 #record visit
 
-INSERT INTO Visits (billingAmount,dateOfVisit,diastolicPressure,doctorUsername,patientUserName,systolicPressure)
-VALUES($billingAmount,$dateOfVisit,$diastolicPressure,$doctorUsername,$patientUserName,$systolicPressure)
+INSERT INTO `Visit`(`visitID`, `doctorUsername`, `patientUserName`, `dateOfVisit`, `diastolicPressure`, `systolicPressure`, `billingAmount`)
+VALUES ('$visitID`, `$doctorUsername`, `$patientUserName`, `$dateOfVisit`, `$diastolicPressure`, `$systolicPressure`, `$billingAmount`)
 
 
 #send message
