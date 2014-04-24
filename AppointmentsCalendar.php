@@ -26,12 +26,39 @@ function submit($db) {
 	$date = $_POST['date'];
 
 	// Query database
-	$username = "SELECT patientUsername From Appointments Where doctorUsername = '$_SESSION['username']' and date = '$date'";
-	$time = "SELECT time From Appointments Where doctorUsername = '$_SESSION['username']' and date = '$date'";
-	$username = $db->query($username);
-	$time = $db->query($time);
+	$sql = 'SELECT * From Appointments Where doctorUsername = "'.$_SESSION['username'].'" and date = "'.$date.' ORDER BY time"';
+	$result = $db->query($sql);
 
-	$code = $username.$time;
+	// Add script header
+	$code = "<script type=\"text/javascript\">";
+	//$code = "";
+
+	// Add counter
+	$count = $result->num_rows;
+
+	// If any rows are returned
+	if ($result) {
+		// For each row returned
+		while ($row = mysqli_fetch_assoc($result)) {
+			// Get patient name
+			$sql = 'SELECT * From Patient Where patientUsername = "'.$row['patientUsername'].'"';
+			$username = mysqli_fetch_assoc($db->query($sql))['name'];
+
+			// Create line
+			$entry = "<tr> <th>".$count."</th> <th>".$username."</th> <th>".$row['time']."</th> </tr>";
+
+			// Add line to output
+			$code = $code.'$("#tableHeader").after("'.$entry.'");';
+
+			// Increment counter
+			$count = $count - 1;
+
+		}
+
+	}
+
+	// Add script closer
+	$code = $code."</script>";
 
 	// Return
 	return $code;
