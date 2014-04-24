@@ -142,9 +142,9 @@ SELECT *
 
 #scheduling appointment
 
-FROM APPOINTMENTS
+FROM Appointments
 SELECT * 
-WHICH NOT TAKEN
+WHERE Doctor.doctorUsername = Appointments.doctorUsername AND Appointments.date=$date AND Appointments.time = $time AND Patient.patientUsername = Appointments.patientUsername
 
 // when someone selects an appointment and accepted by doctor mark it now as taken
 
@@ -155,14 +155,14 @@ VALUES($medicineName,$dosage,$duration,$date,$visitID)
 
 
 #payment
-INSERT INTO Payment Info
-	VALUES ($cardholderName,$cardNumber, $CVV, $dateOfExpiry, $cardType,)
+INSERT INTO Payment_Information(cardholderName,cardNumber, cvv, dateOfExpiry, cardType)
+	VALUES ($cardholderName,$cardNumber, $cvv, $dateOfExpiry, $cardType)
 
 
 #updating rating
 
-UPDATE Rating FROM Doctor
-WHERE doctor.name=rating.doctor AND rating = $rating
+UPDATE Doctor_Rating
+WHERE Doctor.doctorUsername=Doctor_Rating.doctorUsername AND rating = $rating AND Patient.patientUsername=Doctor_Rating.patienUsername
 
 #record visit
 
