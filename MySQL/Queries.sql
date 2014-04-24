@@ -149,8 +149,8 @@ WHICH NOT TAKEN
 // when someone selects an appointment and accepted by doctor mark it now as taken
 
 #order medication 
-INSERT INTO Orders (medicincename, dosage, duration, doctor,date)
-VALUES($medicinename,$dosage,$duration,$doctor,$date)
+INSERT INTO Prescription (medicinceName, dosage, duration,date,$visitID)
+VALUES($medicineName,$dosage,$duration,$date,$visitID)
 
 
 
@@ -166,8 +166,8 @@ WHERE doctor.name=rating.doctor AND rating = $rating
 
 #record visit
 
-INSERT INTO Visits (date,patientname,systolic,diastolic,diagnosis,drug,dosage,duration,notes)
-VALUES($date,$patientname, $systolic, $diastolic, $diagnosis, $drug, $dosage, $duration, $notes)
+INSERT INTO Visits (billingAmount,dateOfVisit,diastolicPressure,doctorUsername,patientUserName,systolicPressure)
+VALUES($billingAmount,$dateOfVisit,$diastolicPressure,$doctorUsername,$patientUserName,$systolicPressure)
 
 
 #send message
