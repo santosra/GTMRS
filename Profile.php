@@ -19,6 +19,8 @@ if($db->query($doctor)->num_rows==1) {
 	echo("<script type='text/javascript'>$('#doctorProfile').show();</script>");
 }
 
+// Put code here!
+
 
 $db->close();
 
