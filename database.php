@@ -5,7 +5,7 @@ $db_host = "127.11.142.2"; // Host name
 $db_port = "3306"; // Port number
 $db_username = "adminIbvwfLd"; // Mysql username
 $db_password = "uruasduzqFn_"; // Mysql password
-$db_name = "GTMRS"; // Database name
+$db_name = "gtmrs"; // Database name
 
 // Connect to server and select databse.
 $db = new mysqli("$db_host", "$db_username", "$db_password", "$db_name", "$db_port");
