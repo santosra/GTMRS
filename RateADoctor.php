@@ -9,7 +9,7 @@ if(!isset($_SESSION['username'])){
 require 'database.php';
 require basename(__FILE__, '.php').".html";
 
-/*$doctorUsername = $_POST['doctorName'];
+$doctorUsername = $_POST['doctorName'];
 $patientUsername = $_POST['username'];
 
 //Determine if this patient has rated this Doctor
