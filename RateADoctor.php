@@ -33,9 +33,6 @@ else { //modify existing tuple
 		WHERE doctorUsername=$doctorUsername and patientUsername=$patientUsername;";
 	$result = $db->query($sql);
 }
-header("location:index.php");
-	ob_end_flush();
-	exit();*/
 
 $db->close();
 
