@@ -193,6 +193,10 @@ WHERE cptCode= $cptCode
 
 
 # 16. Performance of Doctors Report
+#take the average rating of a particular doctor
+SELECT doctorUsername, AVG(rating) FROM Doctor_Rating;
+#join average rating and doctor
+SELECT doctorUsername FROM Doctor WHERE specialty=$specialty;
 
 
 
@@ -201,4 +205,3 @@ WHERE cptCode= $cptCode
 
 
 # 18. Summary of Patients by Doctor
-
