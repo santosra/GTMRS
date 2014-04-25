@@ -33,21 +33,21 @@ INSERT INTO User
 /*Create Profile
 New Patient 
 upon filling out fields and clicking submit*/
-INSERT INTO Patient
-	VALUES ($patientUsername, $name, $dob, $gender, $address, $workPhone, $homePhone, 
-	$emergencyName, $emergencyPhone, $weight, $height, $annualIncome, $cardNumber);
+UPDATE Patient
+SET name = '$name', dob = '$dob', gender = '$gender', address = '$address', workPhone = '$wPhone', homePhone = '$hPhone', emergencyName = '$eName', emergencyPhone = '$ePhone', weight = '$weight', height = '$height', annualIncome = '$income'
+WHERE patientUsername= $Username ;
 
-
-INSERT INTO Patient_Allergies 
-	VALUES ($patientUsername, $allergies);
+INSERT INTO Patient_Allergies (patientUsername, allergy)
+	VALUES ($patientUsername, $allergy);
 
 
 #New Doctor
-INSERT INTO Doctor
-	VALUES ($doctorUsername, $licenseNO, $firstName, $lastName, $dob, $workPhone, $homeAddress, $specialty, $roomNO);
+UPDATE Doctor
+SET licenseNo = '$license', firstName = '$fName', lastName = '$lName', dob = '$dob', workPhone = '$wPhone', homeAddress = '$address', specialty = '$specialty', roomNumber = '$room'
+WHERE doctorUsername= $Username;
 
-INSERT INTO Doctor_Availability
-	VALUES ($doctorUsername, $startTime, $endTime, $date);
+INSERT INTO Doctor_Availability (doctorUsername, startTime, endTime, day)
+	VALUES ($doctorUsername, $startTime, $endTime, $day);
 
 
 #New Admin
