@@ -179,21 +179,17 @@ SELECT *
 	FROM CommunicatesWith
 	WHERE doctorReceiver= $doctorUsername
 
-#Billing (Visits Bill)
+
+# 15. Billing
+#Visits Bill
 SELECT dateOfVisit, billingAmount
 FROM Visit
 WHERE patientUserName= $patientUserName
 
-
-<<<<<<< HEAD
-#Billing (Surgery Bill)
+#Surgery Bill
 SELECT surgeryType, surgeryCost
 FROM Surgery
 WHERE patientUserName= $patientUserName
-=======
-# 15. Billing
-
-
 
 # 16. Performance of Doctors Report
 
