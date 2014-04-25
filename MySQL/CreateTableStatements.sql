@@ -70,7 +70,7 @@ CREATE TABLE Doctor_Availability (
 	doctorUsername VARCHAR(60),
 	startTime TIME,
 	endTime TIME,
-	day DATE,
+	day VARCHAR(60),
 
 	PRIMARY KEY (doctorUsername, startTime, endTime, day),
 	FOREIGN KEY (doctorUsername) REFERENCES Doctor (doctorUsername) ON DELETE CASCADE ON UPDATE CASCADE
