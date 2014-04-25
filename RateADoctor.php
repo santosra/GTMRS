@@ -23,15 +23,15 @@ if($count > 1) { //delete all tuples
 	$db->query($sql);
 }
 if($count == 0) { //add tuple
-	$rating = (int) $_POST['rating'];
+	$rating = (int) $_POST['rating2'];
 	$sql = "INSERT INTO Doctor_Rating(doctorUsername, patientUsername, rating)
 		VALUES ($doctorUsername, $patientUsername, $rating)";
-	$db->query($sql);
+	$result = $db->query($sql);
 }
 else { //modify existing tuple
 	$sql = "UPDATE Doctor_Rating SET rating = $rating
 		WHERE doctorUsername=$doctorUsername and patientUsername=$patientUsername;";
-	$db->query($sql);
+	$result = $db->query($sql);
 }
 print('10');
 // Put code here!
