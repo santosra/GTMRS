@@ -24,8 +24,9 @@ if($count==1){
     $_SESSION['password'] = $password;
 
 	header("location:index.php");
-}
-else {
+	ob_end_flush();
+	exit();
+} else {
 	echo "<META HTTP-EQUIV=REFRESH CONTENT='0; URL=Login.html'>";
     echo "<script type=\"text/javascript\"> alert(\"Wrong Username or Password.\"); </script>";
 }
