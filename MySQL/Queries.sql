@@ -172,11 +172,16 @@ SELECT *
 	FROM CommunicatesWith
 	WHERE doctorReceiver= $doctorUsername
 
+#Billing (Visits Bill)
+SELECT dateOfVisit, billingAmount
+FROM Visit
+WHERE patientUserName= $patientUserName
 
 
-	
-	
-
+#Billing (Surgery Bill)
+SELECT surgeryType, surgeryCost
+FROM Surgery
+WHERE patientUserName= $patientUserName
 
 
 	
