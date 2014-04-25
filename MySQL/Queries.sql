@@ -27,14 +27,14 @@ WHERE Username= $Username AND Password=ConfirmPassword AND TypeOfUser=Admin
 
 
 #Creating new user
-INSERT INTO User
+INSERT INTO User (username, password)
 	VALUES ($username, $password);
 
 /*Create Profile
 New Patient 
 upon filling out fields and clicking submit*/
 UPDATE Patient
-SET name = '$name', dob = '$dob', gender = '$gender', address = '$address', workPhone = '$wPhone', homePhone = '$hPhone', emergencyName = '$eName', emergencyPhone = '$ePhone', weight = '$weight', height = '$height', annualIncome = '$income'
+SET name = $name, dob = $dob, gender = $gender, address = $address, workPhone = $wPhone, homePhone = $hPhone, emergencyName = $eName, emergencyPhone = $ePhone, weight = $weight, height = $height, annualIncome = $income
 WHERE patientUsername= $Username ;
 
 INSERT INTO Patient_Allergies (patientUsername, allergy)
@@ -43,7 +43,7 @@ INSERT INTO Patient_Allergies (patientUsername, allergy)
 
 #New Doctor
 UPDATE Doctor
-SET licenseNo = '$license', firstName = '$fName', lastName = '$lName', dob = '$dob', workPhone = '$wPhone', homeAddress = '$address', specialty = '$specialty', roomNumber = '$room'
+SET licenseNo = $license, firstName = $fName, lastName = $lName, dob = $dob, workPhone = $wPhone, homeAddress = $address, specialty = $specialty, roomNumber = $room
 WHERE doctorUsername= $Username;
 
 INSERT INTO Doctor_Availability (doctorUsername, startTime, endTime, day)
@@ -51,7 +51,7 @@ INSERT INTO Doctor_Availability (doctorUsername, startTime, endTime, day)
 
 
 #New Admin
-INSERT INTO Administrator
+INSERT INTO Administrator (username, password)
 	VALUES ($username, $password);
 
 
@@ -136,7 +136,7 @@ VALUES ($visitID, $doctorUsername, $patientUserName, $dateOfVisit, $diastolicPre
 
 #Surgery Record
 
-INSERT INTO Surgery
+INSERT INTO Surgery (cptCode, surgeryType, surgeryCost)
 	VALUES ($cptCode, $surgeryType, $surgeryCost)
 
 
@@ -145,12 +145,22 @@ SELECT Patient FROM User
 	
 SELECT Patient.name, 
 
+#Sends Message to doctor from patient
+INSERT INTO SendsMessageToDoctor (patientUsername, doctorUsername, content)
+VALUES ($patientUsername, $doctorUsername, $content)
 
+#Sends Message to doctor from doctor
+INSERT INTO CommunicatesWith (doctorSender, doctorReciever, content)
+VALUES ($doctorSender, $doctorReciever, $content)
+
+#Sends Message to patient from doctor
+INSERT INTO SendsMessageToPatient (patientUsername, doctorUsername, content)
+VALUES ($patientUsername, $doctorUsername, $content)
 
 #View Message from patient to doctor
 
 SELECT *
-	FROM SendMessageToDoctor
+	FROM SendsMessageToDoctor
 	WHERE doctorUsername = $doctorUsername;
 
 #View Message from doctor to patient
