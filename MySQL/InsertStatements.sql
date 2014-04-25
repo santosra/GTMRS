@@ -22,3 +22,5 @@ INSERT INTO Visit
 	80.0, 150.0);
 INSERT INTO VisitDiagnosis
 	VALUES (1, 'Flu');
+INSERT INTO Doctor_Rating (doctorUsername, patientUsername, rating)
+	VALUES ('BrownJ', 'BeelerT', 5)

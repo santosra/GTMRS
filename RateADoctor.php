@@ -9,7 +9,30 @@ if(!isset($_SESSION['username'])){
 require 'database.php';
 require basename(__FILE__, '.php').".html";
 
+$doctorUsername = $_POST['doctorName'];
+$patientUsername = $_POST['username'];
 
+//Determine if this patient has rated this Doctor
+$sql = "SELECT * FROM Doctor_Rating WHERE doctorUsername='$doctorUsername' 
+	and patientUsername='$patientUsername'";
+$result = $db->query($sql);
+$count = $result->num_rows;
+if($count > 1) { //delete all tuples
+	$sql = "DELETE * FROM Doctor_Rating WHERE doctorUsername='$doctorUsername' 
+		and patientUsername='$patientUsername'";
+	$db->query($sql);
+}
+if($count == 0) { //add tuple
+	$rating = (int) $_POST['rating'];
+	$sql = "INSERT INTO Doctor_Rating(doctorUsername, patientUsername, rating)
+		VALUES ($doctorUsername, $patientUsername, $rating)";
+	$db->query($sql);
+}
+else { //modify existing tuple
+	$sql = "UPDATE Doctor_Rating SET rating = $rating
+		WHERE doctorUsername=$doctorUsername and patientUsername=$patientUsername;";
+	$db->query($sql);
+}
 // Put code here!
 
 

@@ -82,7 +82,7 @@ SELECT * FROM Availability
 
 
 
-/*View Appointments 
+#View Appointments 
 
 SELECT *
 	FROM Availability 
@@ -94,45 +94,44 @@ SELECT COUNT*
 	GROUP BY date
 
 
-/* order Medication
+#order Medication
 
-INSERT INTO `Prescription`(`visitID`, `medicineName`, `dosage`, `duration`, `notes`, `ordered`) 
-VALUES (`$visitID`, `$medicineName`, `$dosage`, `$duration`, `$notes`, `$ordered`)
-
-
-/* Payment info
-INSERT INTO  `Payment_Information` (  `cardNumber` ,  `cardholderName` ,  `cvv` ,  `dateOfExpiry` ,  `cardType` ) 
-VALUES (`cardholderName`,`$cardNumber`, `$cvv`, `$dateOfExpiry`, `$cardType`)
+INSERT INTO Prescription(visitID, medicineName, dosage, duration, notes, ordered) 
+VALUES ($visitID, $medicineName, $dosage, $duration, $notes, $ordered)
 
 
+#Payment info
+INSERT INTO  Payment_Information (  cardNumber ,  cardholderName ,  cvv ,  dateOfExpiry ,  cardType ) 
+VALUES (cardholderName,$cardNumber, $cvv, $dateOfExpiry, $cardType)
 
-/*View visit history
+
+
+#View visit history
 SELECT Doctor.firstName, dateOfVisit, diastolicPressure, systolicPressure, medicineName, dosage, duration, notes,diagnosis
 	FROM Visits, Prescription, VisitDiagnosis, Doctor
 	WHERE Visits.doctorUsername=Doctor.doctorUsername AND Visit.visitID= VisitDiagnosis.visitID AND Visit.visitID= Prescription.visitID
 	AND Visit.patientUsername= $patientUsername;
 	
 
-/*View patient history	
+#View patient history	
 SELECT Patiet.name, dateOfVisit, diastolicPressure, systolicPressure, medicineName, dosage, duration, notes,diagnosis
 	FROM Visits, Prescription, VisitDiagnosis, Patient
 	WHERE Visits.doctorUsername=Patient.patientUsername AND Visit.visitID= VisitDiagnosis.visitID AND Visit.visitID= Prescription.visitID
 	AND Visit.doctorUsername= $doctorUsername;
 
 
-/* Rating
+#Rating
+UPDATE Doctor_Rating
+	SET rating = $rating
+	WHERE doctorUsername=$doctorUsername and patientUsername=$patientUsername;
 
-UPDATE `Doctor_Rating` 
-SET `doctorUsername`='$doctorUsername`,`patientUsername`=`$patientUsername`,`rating`=`$rating` 
-
-INSERT INTO `Doctor_Rating`(`doctorUsername`, `patientUsername`, `rating`)
-VALUES (`$doctorUsername`, `$patientUsername`, `$rating`)
+INSERT INTO Doctor_Rating(doctorUsername, patientUsername, rating)
+	VALUES ($doctorUsername, $patientUsername, $rating)
 
 
-/* record visit
-
-INSERT INTO `Visit`(`visitID`, `doctorUsername`, `patientUserName`, `dateOfVisit`, `diastolicPressure`, `systolicPressure`, `billingAmount`)
-VALUES ('$visitID`, `$doctorUsername`, `$patientUserName`, `$dateOfVisit`, `$diastolicPressure`, `$systolicPressure`, `$billingAmount`)
+#record visit
+INSERT INTO Visit(visitID, doctorUsername, patientUserName, dateOfVisit, diastolicPressure, systolicPressure, billingAmount)
+VALUES ($visitID, $doctorUsername, $patientUserName, $dateOfVisit, $diastolicPressure, $systolicPressure, $billingAmount)
 
 
 #Surgery Record
@@ -148,14 +147,13 @@ SELECT Patient.name,
 
 
 
-
-/* View Message from patient to doctor
+#View Message from patient to doctor
 
 SELECT *
 	FROM SendMessageToDoctor
 	WHERE doctorUsername = $doctorUsername;
 
-/* View Message from doctor to patient
+#View Message from doctor to patient
 SELECT *
 	FROM SendsMessageToPatient
 	WHERE patientUsername= $patientUsername
@@ -169,20 +167,20 @@ SELECT *
 
 
 	
-//Everything below here hasn't been tested I just made rough copy without using database names
+#Everything below here hasnt been tested I just made rough copy without using database names
 
 #scheduling appointment
 
-SELECT `$doctorUsername`
-FROM `Appointments` 
-WHERE  `date`=$date , `time`=$time
+SELECT $doctorUsername
+FROM Appointments 
+WHERE  date=$date , time=$time
 
 
 #send message
 
-INSERT INTO `SendsMessageToDoctor`(`patientUsername`, `doctorUsername`, `dateTime`, `content`, `status`) 
-VALUES (`$patientUsername`, `$doctorUsername`, `$dateTime`, `$content`, `$status`)
+INSERT INTO SendsMessageToDoctor(patientUsername, doctorUsername, dateTime, content, status) 
+VALUES ($patientUsername, $doctorUsername, $dateTime, $content, $status)
 
-INSERT INTO `SendsMessageToPatient`(`doctorUsername`, `patientUsername`, `dateTime`, `content`, `status`) 
-VALUES (`$doctorUsername`, `$patientUsername`, `$dateTime`, `$content`, `$status`)
+INSERT INTO SendsMessageToPatient(doctorUsername, patientUsername, dateTime, content, status) 
+VALUES ($doctorUsername, $patientUsername, $dateTime, $content, $status)
 
