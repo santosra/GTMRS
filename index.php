@@ -3,6 +3,7 @@ session_start();
 
 if(!isset($_SESSION['username'])){
 	header("location:Login.html");
+	exit();
 }
 
 require 'database.php';
