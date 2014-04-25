@@ -33,6 +33,7 @@ else { //modify existing tuple
 		WHERE doctorUsername=$doctorUsername and patientUsername=$patientUsername;";
 	$db->query($sql);
 }
+print('10');
 // Put code here!
 
 
