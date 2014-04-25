@@ -180,6 +180,7 @@ SELECT *
 	WHERE doctorReceiver= $doctorUsername
 
 
+
 # 15. Billing
 #Visits Bill
 SELECT dateOfVisit, billingAmount
@@ -192,11 +193,14 @@ FROM Surgery
 WHERE cptCode= $cptCode
 
 
+
 # 16. Performance of Doctors Report
+#get a list of doctors for a particular specialty
+SELECT doctorUsername FROM Doctor WHERE specialty=$specialty;
 #take the average rating of a particular doctor
 SELECT doctorUsername, AVG(rating) FROM Doctor_Rating;
-#join average rating and doctor
-SELECT doctorUsername FROM Doctor WHERE specialty=$specialty;
+#get a count of surgeries performed by a particular doctor
+SELECT COUNT(doctorUsername) FROM Performs WHERE doctorUsername=$doctorUsername;
 
 
 
