@@ -189,7 +189,8 @@ WHERE patientUserName= $patientUserName
 #Surgery Bill
 SELECT surgeryType, surgeryCost
 FROM Surgery
-WHERE patientUserName= $patientUserName
+WHERE cptCode= $cptCode
+
 
 # 16. Performance of Doctors Report
 
@@ -201,22 +202,3 @@ WHERE patientUserName= $patientUserName
 
 # 18. Summary of Patients by Doctor
 
-	
-	
-
->>>>>>> FETCH_HEAD
-
-
-	
-#Everything below here hasnt been tested I just made rough copy without using database names
-
-
-
-
-#send message
-
-INSERT INTO SendsMessageToDoctor(patientUsername, doctorUsername, dateTime, content, status) 
-VALUES ($patientUsername, $doctorUsername, $dateTime, $content, $status)
-
-INSERT INTO SendsMessageToPatient(doctorUsername, patientUsername, dateTime, content, status) 
-VALUES ($doctorUsername, $patientUsername, $dateTime, $content, $status)
