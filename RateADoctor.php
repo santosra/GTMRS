@@ -36,4 +36,7 @@ else { //modify existing tuple
 
 $db->close();
 
+header("location:index.php");
+exit();
+
 ?>
