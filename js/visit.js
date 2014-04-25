@@ -34,20 +34,20 @@ $(document).ready(function() {
         var row = '<div id="medicineDiv' + (fields + 1) + '">\
                             <div class="pure-control-group">\
                                 <label for="medName' + (fields + 1) + '">Medicine Name</label>\
-                                <input id="medName' + (fields + 1) + '" type="text" required>\
+				<input name="medName' + (fields + 1) + '" id="medName' + (fields + 1) + '" type="text" required>\
                             </div>\
                             <div class="pure-control-group">\
                                 <label for="dosage' + (fields + 1) + '">Dosage</label>\
-                                <input id="dosage' + (fields + 1) + '" type="number" min="1" max="10" required> per day\
+				<input name="dosage' + (fields + 1) + '" id="dosage' + (fields + 1) + '" type="number" min="1" max="10" required> per day\
                             </div>\
                             <div class="pure-control-group">\
                                 <label for="monthDuration' + (fields + 1) + '">Duration</label>\
-                                <input id="monthDuration' + (fields + 1) + '" type="number" min="0" max="30" required> months\
-                                <input id="dayDuration' + (fields + 1) + '" type="number" min="1" max="30" required> days\
+				<input name="monthDuration' + (fields + 1) + '" id="monthDuration' + (fields + 1) + '" type="number" min="0" max="30" required> months\
+				<input name="dayDuration' + (fields + 1) + '" id="dayDuration' + (fields + 1) + '" type="number" min="1" max="30" required> days\
                             </div>\
                             <div class="pure-control-group">\
                                 <label for="notes' + (fields + 1) + '">Notes</label>\
-                                <textarea rows="4" cols="50" id="notes' + (fields + 1) + '" type="text"></textarea>\
+				<textarea rows="4" cols="50" name="notes' + (fields + 1) + '" id="notes' + (fields + 1) + '" type="text"></textarea>\
                             </div>\
                             <div class="pure-control-group" id="buttonLocation' + (fields + 1) + '">\
                                 <label></label>\
