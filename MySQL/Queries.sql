@@ -150,8 +150,8 @@ INSERT INTO SendsMessageToDoctor (patientUsername, doctorUsername, content)
 VALUES ($patientUsername, $doctorUsername, $content)
 
 #Sends Message to doctor from doctor
-INSERT INTO CommunicatesWith (doctorSender, doctorReciever, content)
-VALUES ($doctorSender, $doctorReciever, $content)
+INSERT INTO CommunicatesWith (doctorSender, doctorReceiver, content)
+VALUES ($doctorSender, $doctorReceiver, $content)
 
 #Sends Message to patient from doctor
 INSERT INTO SendsMessageToPatient (patientUsername, doctorUsername, content)
