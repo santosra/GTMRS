@@ -13,7 +13,7 @@ SELECT* FROM Doctor
 WHERE doctorUsername= $doctorUsername
 
 
-/*New user registration
+#New user registration
 
 
 UPDATE Patient FROM User
