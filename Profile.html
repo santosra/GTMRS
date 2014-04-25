@@ -26,21 +26,21 @@
         <div class="main">
             <div class="container_12">
 
-		<form class="pure-form pure-form-aligned" id="patientProfile" style="display: none;">
+		<form class="pure-form pure-form-aligned" id="patientProfile" style="display: none;" method="post" action="">
                     <fieldset>
                         <div class="pure-control-group">
                             <label for="firstNamePatient">First Name</label>
-                            <input id="firstNamePatient" type="text" required>
+                            <input name="firstNamePatient" id="firstNamePatient" type="text" required>
                         </div>
 
                         <div class="pure-control-group">
                             <label for="lastNamePatient">Last Name</label>
-                            <input id="lastNamePatient" type="text" required>
+                            <input name="lastNamePatient" id="lastNamePatient" type="text" required>
                         </div>
 
                         <div class="pure-control-group">
                             <label for="genderPatient">Gender</label>
-                            <select id="genderPatient" required>
+                            <select name="genderPatient" id="genderPatient" required>
                                 <option value="">Select</option>
                                 <option>Male</option>
                                 <option>Female</option>
@@ -50,46 +50,53 @@
 
                         <div class="pure-control-group">
                             <label for="dobPatient">Date of Birth</label>
-                            <input id="dobPatient" type="date" required>
+                            <input name="dobPatient" id="dobPatient" type="date" required>
                         </div>
 
                         <div class="pure-control-group">
                             <label for="addressPatient">Address</label>
-                            <input id="addressPatient" type="text" required>
+                            <input name="addressPatient" id="addressPatient" type="text" required>
                         </div>
 
                         <div class="pure-control-group">
                             <label for="homePhonePatient">Home Phone</label>
-                            <input id="homePhonePatient" type="tel" pattern="^\d{3}-\d{3}-\d{4}$" required> e.g. 555-555-555
+                            <input name="homePhonePatient" id="homePhonePatient" type="tel" pattern="^\d{3}\d{3}\d{4}$" required>
                         </div>
 
                         <div class="pure-control-group">
                             <label for="workPhonePatient">Work Phone</label>
-                            <input id="workPhonePatient" type="tel" pattern="^\d{3}-\d{3}-\d{4}$" required> e.g. 555-555-555
+                            <input name="workPhonePatient" id="workPhonePatient" type="tel" pattern="^\d{3}\d{3}\d{4}$" required>
+                        </div>
+
+                        <div class="pure-control-group">
+                            <label for="emergencyNamePatient">Emergency Contact Name</label>
+                            <input name="emergencyNamePatient" id="emergencyNamePatient" type="text" required>
+                        </div>
+
+                        <div class="pure-control-group">
+                            <label for="emergencyPhonePatient">Emergency Contact Phone</label>
+                            <input name="emergencyPhonePatient" id="emergencyPhonePatient" type="tel" pattern="^\d{3}\d{3}\d{4}$" required>
                         </div>
 
                         <div class="pure-control-group">
                             <label for="weightPatient">Weight</label>
-                            <input id="weightPatient" type="number" min="1" max="999" required> lbs
+                            <input name="weightPatient" id="weightPatient" type="number" min="1" max="999" required> lbs
                         </div>
 
                         <div class="pure-control-group">
                             <label for="feetHeightPatient">Height</label>
-                            <input id="feetHeightPatient" type="number" min="1" max="9" required> ft
-                            <input id="inchHeightPatient" type="number" min="0" max="11" required> in
+                            <input name="feetHeightPatient" id="feetHeightPatient" type="number" min="1" max="9" required> ft
+                            <input name="inchHeightPatient" id="inchHeightPatient" type="number" min="0" max="11" required> in
                         </div>
 
                         <div class="pure-control-group">
                             <label for="incomePatient">Annual Income</label>
-                            <select id="incomePatient" required>
-                                <option value="">Select</option>
-                                <option>0 - $?</option>
-                            </select>
+                            <input name="incomePatient" id="incomePatient" type="number" min="0" required>
                         </div>
 
                         <div class="pure-control-group" id ="allergyDiv1">
                             <label for="allergy1">Allergies</label>
-                            <input id="allergy1" type="text">
+                            <input name="allergy1" id="allergy1" type="text">
                             <button class="pure-button pure-button-active" id="removeButtonPatient" hidden>Remove</button>
                             <button class="pure-button pure-button-active" id="addButtonPatient">Add More</button>
                         </div>
@@ -100,46 +107,46 @@
                     </fieldset>
                 </form>
 
-		<form class="pure-form pure-form-aligned" id="doctorProfile" style="display: none;">
+		<form class="pure-form pure-form-aligned" id="doctorProfile" style="display: none;" method="post" action="">
                     <fieldset>
                         <div class="pure-control-group">
                             <label for="firstNameDoctor">First Name</label>
-                            <input id="firstNameDoctor" type="text" required>
+                            <input name="firstNameDoctor" id="firstNameDoctor" type="text" required>
                         </div>
 
                         <div class="pure-control-group">
                             <label for="lastNameDoctor">Last Name</label>
-                            <input id="lastNameDoctor" type="text" required>
+                            <input name="lastNameDoctor" id="lastNameDoctor" type="text" required>
                         </div>
 
                         <div class="pure-control-group">
                             <label for="dobDoctor">Date of Birth</label>
-                            <input id="dobDoctor" type="date" required>
+                            <input name="dobDoctor" id="dobDoctor" type="date" required>
                         </div>
 
                         <div class="pure-control-group">
                             <label for="addressDoctor">Address</label>
-                            <input id="addressDoctor" type="text" required>
+                            <input name="addressDoctor" id="addressDoctor" type="text" required>
                         </div>
 
                         <div class="pure-control-group">
                             <label for="workPhoneDoctor">Work Phone</label>
-                            <input id="workPhoneDoctor" type="tel" pattern="^\d{3}-\d{3}-\d{4}$" required> e.g. 555-555-555
+                            <input name="workPhoneDoctor" id="workPhoneDoctor" type="tel" pattern="^\d{3}-\d{3}-\d{4}$" required> e.g. 555-555-555
                         </div>
 
                         <div class="pure-control-group">
                             <label for="licenseDoctor">License #</label>
-                            <input id="licenseDoctor" type="text" required>
+                            <input name="licenseDoctor" id="licenseDoctor" type="text" required>
                         </div>
 
                         <div class="pure-control-group">
                             <label for="roomDoctor">Room #</label>
-                            <input id="roomDoctor" type="text" required>
+                            <input name="roomDoctor" id="roomDoctor" type="text" required>
                         </div>
 
                         <div class="pure-control-group">
                             <label for="specialtyDoctor">Specialty</label>
-                            <select id="specialtyDoctor" required>
+                            <select name="specialtyDoctor" id="specialtyDoctor" required>
                                 <option value="">Select</option>
                                 <option>General Physician</option>
                                 <option>Heart Specialist</option>
@@ -152,7 +159,7 @@
 
                         <div class="pure-control-group" id ="availableDiv1">
                             <label for="availableDate1">Availability</label>
-                            <select id="availableDate1" required>
+                            <select name="availableDate1" id="availableDate1" required>
                                 <option value="">Select</option>
                                 <option>Monday</option>
                                 <option>Tuesday</option>
@@ -162,8 +169,8 @@
                                 <option>Saturday</option>
                                 <option>Sunday</option>
                             </select> From 
-                            <input id="availableFrom1" type="time" required> To
-                            <input id="availableTo1" type="time" required>
+                            <input name="availableFrom1" id="availableFrom1" type="time" required> To
+                            <input name="availableTo1" id="availableTo1" type="time" required>
                             <button class="pure-button pure-button-active" id="removeButtonDoctor" hidden>Remove</button>
                             <button class="pure-button pure-button-active" id="addButtonDoctor">Add More</button>
                         </div>

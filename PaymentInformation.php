@@ -6,6 +6,7 @@ session_start();
 // Check if user is logged in
 if(!isset($_SESSION['username'])){
 	header("location:Login.html");
+	exit();
 }
 
 // Include database config and html files

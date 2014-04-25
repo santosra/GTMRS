@@ -13,7 +13,7 @@ $(document).ready(function() {
 
         $("#allergy" + fieldsPatient).attr("readonly", true);
 
-        var row = '<div class="pure-control-group" id ="allergyDiv' + (fieldsPatient + 1) + '"> <label for="allergy' + (fieldsPatient + 1) + '"></label> <input id="allergy' + (fieldsPatient + 1) + '" type="text" required> </div>';
+        var row = '<div class="pure-control-group" id ="allergyDiv' + (fieldsPatient + 1) + '"> <label for="allergy' + (fieldsPatient + 1) + '"></label> <input name="allergy' + (fieldsPatient + 1) + '" id="allergy' + (fieldsPatient + 1) + '" type="text" required> </div>';
 
         $("#allergyDiv" + fieldsPatient).after(row);
 
