@@ -76,7 +76,7 @@ $(document).ready(function() {
         $("#availableFrom" + fieldsDoctor).attr("readonly", true);
         $("#availableTo" + fieldsDoctor).attr("readonly", true);
 
-        var row = '<div class="pure-control-group" id ="availableDiv' + (fieldsDoctor + 1) + '"> <label for="availableDate' + (fieldsDoctor + 1) + '">Availability</label> <select id="availableDate' + (fieldsDoctor + 1) + '" required> <option></option> <option>Monday</option> <option>Tuesday</option> <option>Wednesday</option> <option>Thursday</option> <option>Friday</option> <option>Saturday</option> <option>Sunday</option> </select> From  <input id="availableFrom' + (fieldsDoctor + 1) + '" type="time" required> To <input id="availableTo' + (fieldsDoctor + 1) + '" type="time" required> </div>';
+        var row = '<div class="pure-control-group" id ="availableDiv' + (fieldsDoctor + 1) + '"> <label for="availableDate' + (fieldsDoctor + 1) + '">Availability</label> <select name="availableDate' + (fieldsDoctor + 1) + '" id="availableDate' + (fieldsDoctor + 1) + '" required> <option></option> <option>Monday</option> <option>Tuesday</option> <option>Wednesday</option> <option>Thursday</option> <option>Friday</option> <option>Saturday</option> <option>Sunday</option> </select> From  <input name="availableFrom' + (fieldsDoctor + 1) + '" id="availableFrom' + (fieldsDoctor + 1) + '" type="time" required> To <input name="availableTo' + (fieldsDoctor + 1) + '" id="availableTo' + (fieldsDoctor + 1) + '" type="time" required> </div>';
 
         $("#availableDiv" + fieldsDoctor).after(row);
 
