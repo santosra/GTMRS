@@ -158,7 +158,6 @@ INSERT INTO SendsMessageToPatient (patientUsername, doctorUsername, content)
 VALUES ($patientUsername, $doctorUsername, $content)
 
 #View Message from patient to doctor
-
 SELECT *
 	FROM SendsMessageToDoctor
 	WHERE doctorUsername = $doctorUsername;
@@ -168,6 +167,10 @@ SELECT *
 	FROM SendsMessageToPatient
 	WHERE patientUsername= $patientUsername
 
+#View Message from doctor to doctor
+SELECT *
+	FROM CommunicatesWith
+	WHERE doctorReceiver= $doctorUsername
 
 
 
