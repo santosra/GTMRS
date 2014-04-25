@@ -30,8 +30,12 @@ function submit($db) {
 	$ccv = $_POST['ccv'];
 	$expiration = $_POST['expiration'];
 
-	// Query database
+	// Insert into payment table
 	$sql = "INSERT INTO Payment_Information (cardholderName, cardNumber,cardType,cvv,dateOfExpiry) VALUES('$name', '$number', '$type', '$ccv', '$expiration')";
+	$result = $db->query($sql);
+
+	// Inser into patient table
+	$sql = "INSERT INTO Patient (cardNumber) VALUES('$number')";
 	$result = $db->query($sql);
 
 	// Return to home page
