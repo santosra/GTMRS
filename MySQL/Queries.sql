@@ -133,23 +133,24 @@ SELECT Patiet.name, dateOfVisit, diastolicPressure, systolicPressure, medicineNa
 
 
 
-#record visit
+# 11. record visit
 INSERT INTO Visit(visitID, doctorUsername, patientUserName, dateOfVisit, diastolicPressure, systolicPressure, billingAmount)
 VALUES ($visitID, $doctorUsername, $patientUserName, $dateOfVisit, $diastolicPressure, $systolicPressure, $billingAmount)
 
 
-#Surgery Record
 
+# 12. Surgery Record
 INSERT INTO Surgery (cptCode, surgeryType, surgeryCost)
 	VALUES ($cptCode, $surgeryType, $surgeryCost)
-
 
 SELECT Patient FROM User
 	WHERE Patient.name= $name
 	
 SELECT Patient.name, 
 
-#Sends Message to doctor from patient
+
+
+# 13. Sends Message to doctor from patient
 INSERT INTO SendsMessageToDoctor (patientUsername, doctorUsername, content)
 VALUES ($patientUsername, $doctorUsername, $content)
 
@@ -161,7 +162,9 @@ VALUES ($doctorSender, $doctorReceiver, $content)
 INSERT INTO SendsMessageToPatient (patientUsername, doctorUsername, content)
 VALUES ($patientUsername, $doctorUsername, $content)
 
-#View Message from patient to doctor
+
+
+# 14. View Message from patient to doctor
 SELECT *
 	FROM SendsMessageToDoctor
 	WHERE doctorUsername = $doctorUsername;
@@ -177,6 +180,20 @@ SELECT *
 	WHERE doctorReceiver= $doctorUsername
 
 
+
+# 15. Billing
+
+
+
+# 16. Performance of Doctors Report
+
+
+
+# 17. Surgeries Performed in the Last 3 Months
+
+
+
+# 18. Summary of Patients by Doctor
 
 	
 	
@@ -196,4 +213,3 @@ VALUES ($patientUsername, $doctorUsername, $dateTime, $content, $status)
 
 INSERT INTO SendsMessageToPatient(doctorUsername, patientUsername, dateTime, content, status) 
 VALUES ($doctorUsername, $patientUsername, $dateTime, $content, $status)
-
