@@ -1,7 +1,6 @@
-/*Logging on to GTMRS 
+/* 1. Logging on to GTMRS 
 If Null value returned, show login screen again
 If not Null direct to appropriate page*/
-
 SELECT EXISTS
 (SELECT Username, Password FROM User
 WHERE Username= $Username AND Password=$Password)
@@ -13,9 +12,8 @@ SELECT* FROM Doctor
 WHERE doctorUsername= $doctorUsername
 
 
-#New user registration
 
-
+# 2. New user registration
 UPDATE Patient FROM User
 WHERE Username= $Username AND Password=ConfirmPassword AND TypeOfUser= Patient
 
@@ -25,22 +23,21 @@ WHERE Username= $Username AND Password= ConfirmPassword AND TypeOfUser= Doctor
 UPDATE Admin FROM User
 WHERE Username= $Username AND Password=ConfirmPassword AND TypeOfUser=Admin
 
-
 #Creating new user
 INSERT INTO User
 	VALUES ($username, $password);
 
-/*Create Profile
+
+
+/* 3. Create Profile
 New Patient 
 upon filling out fields and clicking submit*/
 INSERT INTO Patient
 	VALUES ($patientUsername, $name, $dob, $gender, $address, $workPhone, $homePhone, 
 	$emergencyName, $emergencyPhone, $weight, $height, $annualIncome, $cardNumber);
 
-
 INSERT INTO Patient_Allergies 
 	VALUES ($patientUsername, $allergies);
-
 
 #New Doctor
 INSERT INTO Doctor
@@ -49,18 +46,16 @@ INSERT INTO Doctor
 INSERT INTO Doctor_Availability
 	VALUES ($doctorUsername, $startTime, $endTime, $date);
 
-
 #New Admin
 INSERT INTO Administrator
 	VALUES ($username, $password);
 
-
 /*Update Patient
-repopulate with previous information*/
-*attribute=> any value that corresponds to that user
+repopulate with previous information
+attribute=> any value that corresponds to that user*/
 
 SELECT * FROM Patient;
-	UPDATE Patient
+UPDATE Patient
 	SET attribute=$attribute;
 	WHERE patientUsername=$patientUsername;
 
@@ -68,11 +63,9 @@ SELECT * FROM Patient;
 repopulate with previous information*/
 
 SELECT* FROM Doctor;
-	UPDATE Doctor
+UPDATE Doctor
 	SET attribute=$attribute 
 	WHERE doctorUsername=$doctorUsername;
-
-
 
 #Updating availability
 SELECT * FROM Availability
@@ -82,8 +75,44 @@ SELECT * FROM Availability
 
 
 
-#View Appointments 
+# 4. schedule appointment
+SELECT $doctorUsername
+FROM Appointments 
+WHERE  date=$date , time=$time
 
+
+
+# 5. order Medication
+INSERT INTO Prescription(visitID, medicineName, dosage, duration, notes, ordered) 
+VALUES ($visitID, $medicineName, $dosage, $duration, $notes, $ordered)
+
+
+
+# 6. Payment information
+INSERT INTO  Payment_Information (  cardNumber ,  cardholderName ,  cvv ,  dateOfExpiry ,  cardType ) 
+VALUES (cardholderName,$cardNumber, $cvv, $dateOfExpiry, $cardType)
+
+
+
+# 7. View visit history
+SELECT Doctor.firstName, dateOfVisit, diastolicPressure, systolicPressure, medicineName, dosage, duration, notes,diagnosis
+	FROM Visits, Prescription, VisitDiagnosis, Doctor
+	WHERE Visits.doctorUsername=Doctor.doctorUsername AND Visit.visitID= VisitDiagnosis.visitID AND Visit.visitID= Prescription.visitID
+	AND Visit.patientUsername= $patientUsername;
+
+
+
+# 8. Rate a doctor
+UPDATE Doctor_Rating
+	SET rating = $rating
+	WHERE doctorUsername=$doctorUsername and patientUsername=$patientUsername;
+
+INSERT INTO Doctor_Rating(doctorUsername, patientUsername, rating)
+	VALUES ($doctorUsername, $patientUsername, $rating)
+
+
+
+# 9. View Appointments 
 SELECT *
 	FROM Availability 
 	WHERE Availability.username = Doctor.username AND Availability.date=$date;
@@ -93,40 +122,14 @@ SELECT COUNT*
 	WHERE MONTH($date) = $month AND YEAR($date)= $year
 	GROUP BY date
 
-
-#order Medication
-
-INSERT INTO Prescription(visitID, medicineName, dosage, duration, notes, ordered) 
-VALUES ($visitID, $medicineName, $dosage, $duration, $notes, $ordered)
-
-
-#Payment info
-INSERT INTO  Payment_Information (  cardNumber ,  cardholderName ,  cvv ,  dateOfExpiry ,  cardType ) 
-VALUES (cardholderName,$cardNumber, $cvv, $dateOfExpiry, $cardType)
-
-
-
-#View visit history
-SELECT Doctor.firstName, dateOfVisit, diastolicPressure, systolicPressure, medicineName, dosage, duration, notes,diagnosis
-	FROM Visits, Prescription, VisitDiagnosis, Doctor
-	WHERE Visits.doctorUsername=Doctor.doctorUsername AND Visit.visitID= VisitDiagnosis.visitID AND Visit.visitID= Prescription.visitID
-	AND Visit.patientUsername= $patientUsername;
 	
 
-#View patient history	
+# 10. Patient Visit History	
 SELECT Patiet.name, dateOfVisit, diastolicPressure, systolicPressure, medicineName, dosage, duration, notes,diagnosis
 	FROM Visits, Prescription, VisitDiagnosis, Patient
 	WHERE Visits.doctorUsername=Patient.patientUsername AND Visit.visitID= VisitDiagnosis.visitID AND Visit.visitID= Prescription.visitID
 	AND Visit.doctorUsername= $doctorUsername;
 
-
-#Rating
-UPDATE Doctor_Rating
-	SET rating = $rating
-	WHERE doctorUsername=$doctorUsername and patientUsername=$patientUsername;
-
-INSERT INTO Doctor_Rating(doctorUsername, patientUsername, rating)
-	VALUES ($doctorUsername, $patientUsername, $rating)
 
 
 #record visit
@@ -169,11 +172,7 @@ SELECT *
 	
 #Everything below here hasnt been tested I just made rough copy without using database names
 
-#scheduling appointment
 
-SELECT $doctorUsername
-FROM Appointments 
-WHERE  date=$date , time=$time
 
 
 #send message
