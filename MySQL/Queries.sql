@@ -205,7 +205,15 @@ SELECT COUNT(doctorUsername) FROM Performs WHERE doctorUsername=$doctorUsername;
 
 
 # 17. Surgeries Performed in the Last 3 Months
+SELECT * FROM Performs;
 
 
 
 # 18. Summary of Patients by Doctor
+#get a list of all doctors
+SELECT doctorUsername FROM Doctor;
+#get number of visits for a particular doctor
+SELECT COUNT(doctorUsername) FROM Visit WHERE doctorUsername=$doctorUsername;
+#get number of prescriptions for a particlar doctor
+SELECT visitID FROM Visit WHERE doctorUsername=$doctorUsername;
+SELECT COUNT(visitID) FROM Prescription WHERE visitID=$visitID;
